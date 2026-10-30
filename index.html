@@ -92,7 +92,7 @@
     }
     .pestanas a {
       display: block;
-      padding: .45rem .55rem;
+      padding: .45rem .4rem;
       border-radius: 6px;
       font: 700 .9rem/1.3 system-ui, "Segoe UI", sans-serif;
       text-decoration: none;
@@ -222,6 +222,52 @@
     }
     .texto-nuevo { margin: 1.25rem 0; padding: .75rem 1rem; border: 2px solid var(--texto); border-radius: 16px; }
     .grafica-nota { margin: 1.5rem 0 0; color: var(--secundario); font-size: .92rem; }
+
+    .sonido {
+      margin: .5rem 0 1rem calc(var(--col-quien) + var(--separacion));
+      padding: .6rem .75rem;
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      border-radius: 6px;
+      font: .9rem/1.35 system-ui, "Segoe UI", sans-serif;
+    }
+    .sonido.sonando { border-color: var(--acotacion); box-shadow: var(--resplandor); }
+    .sonido-cabeza { display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem .75rem; margin-bottom: .5rem; }
+    .sonido-nombre { font-weight: 700; color: var(--acotacion); }
+    .sonido-origen { color: var(--secundario); font-size: .82rem; }
+    .sonido-estado { margin-left: auto; color: var(--secundario); font-size: .82rem; font-variant-numeric: tabular-nums; }
+    .sonido-botones { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .sonido-botones button, #detener-todo {
+      min-height: 2.5rem;
+      padding: .3rem .7rem;
+      border-radius: 5px;
+      font: 700 .85rem/1.2 system-ui, "Segoe UI", sans-serif;
+      cursor: pointer;
+    }
+    .sonido-botones button { background: var(--fondo); color: var(--texto); border: 1px solid var(--borde); }
+    .sonido-botones button:hover { border-color: var(--texto); }
+    .sonido-botones button:focus-visible, #detener-todo:focus-visible { outline: 2px solid var(--texto); outline-offset: 2px; }
+    .sonido-botones button[aria-pressed="true"] { background: var(--texto); color: var(--fondo); }
+    #detener-todo {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 20;
+      padding: .5rem 1rem;
+      background: var(--acotacion);
+      color: var(--fondo);
+      border: 0;
+      box-shadow: var(--resplandor);
+    }
+    .creditos-nota { color: var(--secundario); }
+    .creditos-marco { overflow-x: auto; }
+    .creditos { min-width: 40rem; width: 100%; border-collapse: collapse; font: .88rem/1.4 system-ui, "Segoe UI", sans-serif; }
+    .creditos th, .creditos td { padding: .45rem .5rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--borde); font-weight: 400; }
+    .creditos thead th { color: var(--secundario); }
+    .creditos tbody th { font-weight: 700; }
+    @media (max-width: 40rem) {
+      .sonido { margin-left: 0; }
+    }
   </style>
 </head>
 <body>
@@ -245,6 +291,7 @@
         <li><a href="#acto-9" title="Los ángeles salvan a los pastores">Acto 9</a></li>
         <li><a href="#acto-10" title="Los pastores llegan a adorar al Niño a Belén">Acto 10</a></li>
         <li><a href="#palabras">Palabras</a></li>
+        <li><a href="#sonidos">Sonidos</a></li>
         <li class="pendientes"><a href="#por-revisar">⚠ Por revisar</a></li>
     </ul>
   </nav>
@@ -360,6 +407,7 @@
     <section id="acto-1" class="acto">
       <h2><span>Acto 1</span> La anunciación</h2>
       <p class="acotacion"><span class="acot">(María duerme recostada, se oye música celestial de fondo. El ángel aparece en escena)</span></p>
+      <div class="sonido" data-src="sonidos/celestial.mp3" data-nombre="Música celestial" data-origen="acotacion" data-volumen="60" data-repetir></div>
       <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>María, María. <span class="acot">(María despierta y se sorprende, se arrodilla)</span> Hija de Sión, llénate de alegría, pues el Dios del cielo y de la tierra está en ti.</p></div></div>
       <div class="linea p-maria"><div class="quien">María</div><div class="dice"><p><span class="acot">(Admirada y con temor)</span> Mi alma se alegra en mi Dios, pero no entiendo qué quieres decir y por qué vienes a mí.</p></div></div>
       <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Mujer, tú eres la llena de gracia, pues desde siempre Dios te pensó y te hizo para sí, por eso serás bendita entre todas las mujeres por los siglos.</p></div></div>
@@ -378,6 +426,7 @@
     <section id="acto-2" class="acto">
       <h2><span>Acto 2</span> Los demonios y su plan</h2>
       <p class="acotacion"><span class="acot">(Se encuentran en una sala de juntas, todos los demonios hablan y discuten, solo Satanás está en silencio, enojado, grita y los calla)</span></p>
+      <div class="sonido" data-src="sonidos/montana.mp3" data-nombre="Música de los demonios" data-origen="sugerido" data-volumen="40" data-repetir></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Iracundo)</span> ¡Silencio!</p></div></div>
       <p class="acotacion"><span class="acot">(Todos se callan a una, a excepción de Candela, al estilo del Prof. Jirafales y el Chavo)</span></p>
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Y luego a Satanás le apesta el hocico.</p></div></div>
@@ -390,6 +439,7 @@
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Emocionada)</span> ¡De veras!, el Cochiloco de Temu tiene mucha razón.</p></div></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Enojado, saca el arma y le apunta mientras camina hacia ella)</span> ¿Cómo me dijiste, mendiga fresa de Irapuato?</p></div></div>
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Cuando lo tiene cerca, solo lo hace a un lado con la mano y Sulfuroso cae lejos, como si le hubiera dado un supergolpe. Se queda ahí desmayado hasta que le toca hablar)</span> <span class="acot">(Mientras hace a Sulfuroso a un lado)</span> ¡Quítate! Jefe, lo que debemos de hacer es lograr que los humanos se habitúen al placer del pecado. Ya sabe, el gusto de tener más que los demás, no importa si no es necesario, pero que siempre estén los roperos llenos a más no poder.</p></div></div>
+      <div class="sonido" data-src="sonidos/golpe.mp3" data-nombre="Golpe" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Se empieza a levantar poco a poco, habla mareado y se tambalea)</span> ¡Fierro!, y otra cosa, patrón. Se supone que lo que lleva a la gente al cielo es la caridad, ¿no? Pues hay que lograr que los corazones se enfríen, que no les importe la necesidad de los demás, que antepongan en sus vidas lo que no necesitan a las necesidades del prójimo.</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Emocionado)</span> ¡Espléndido! Un plan diabólicamente perfecto. Ciertamente, contra Dios no puedo hacer nada, pero en los hombres puedo hacer lo que yo quiera y, lo que es peor, ellos solitos son los que me buscan; basta tan solo con darles lo mínimo de placer para que vengan a mí buscándome. Bueno, y ¿cómo lo vamos a hacer?</p></div></div>
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Pues hay que empezar con quienes dirigen al mundo, con los poderosos, con los influencers y así será más fácil hacer que el mundo entero prefiera nuestros placeres demoniacos a dejarse redimir por Dios.</p></div></div>
@@ -398,8 +448,10 @@
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Sobres, pues! Entonces yo me encargaré de que los jóvenes se dejen pervertir, como dijo mi expresidente, “ténganme pajienjia y confianja”.</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Maravilloso! Manos a la obra. Pónganse a chambear, <span class="acot">(con voz amenazante)</span> y cuidado con fracasar, porque ay de ustedes, que Dios los agarre confesados.</p></div></div>
       <div class="linea p-grupo"><div class="quien"><span class="p-candela">Candela</span> y <span class="p-sulfuroso">Sulfuroso</span></div><div class="dice"><p><span class="acot">(Se asustan y corren)</span></p></div></div>
+      <div class="sonido" data-src="sonidos/risa.mp3" data-nombre="Risa malvada" data-origen="sugerido" data-volumen="100"></div>
       <div class="texto-nuevo">
       <p class="acotacion"><span class="acot">(Satanás se queda solo y se sienta en su silla, muy satisfecho. Se oyen gritos desde fuera. Entra a toda carrera Asmodemónico, jorobado y con rastas, abrazando una montaña de papeles. Se pisa la cola, vuela de panza por todo el escenario y se detiene justo a los pies de Satanás. Los papeles le van cayendo encima, uno por uno.)</span></p>
+      <div class="sonido" data-src="sonidos/golpe.mp3" data-nombre="Golpe" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde el suelo, levanta un dedo)</span> ¡Patrón, patrón! ¡Vengo a avisarle que el de allá arriba ya viene a redimir a los humanos!</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Sin voltear a verlo, le da un zape)</span> Asmodemónico… eso ya lo sé, la junta ya se acabó.</p></div></div>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Se soba la cabeza, se levanta de un brinco, se vuelve a pisar la cola y cae de sentón. Se levanta otra vez y camina con las manos atrás, igualito a Satanás, con todo y joroba)</span> No se apure, patrón, que en el camino se me ocurrió un plan. ¡Óigame bien! Hay que hacer que se acostumbren al placer del pecado, que traigan los roperos llenos a más no poder. <span class="acot">(Se mete papeles en la ropa hasta quedar todo inflado)</span> ¡Y hay que enfriarles el corazón para que no les importe el prójimo! <span class="acot">(Se abraza, tiembla y le castañetean los dientes)</span> ¡Y empezamos con los poderosos y los influencers! <span class="acot">(Se toma una selfie sacando la lengua y se deslumbra con su propio flash)</span></p></div></div>
@@ -413,6 +465,7 @@
       <p class="acotacion"><span class="acot">(Satanás señala la salida con su tridente. Asmodemónico sale corriendo para el lado contrario y se estrella contra la pared. Da media vuelta, mareado, le hace un saludo a la pared y por fin sale por donde era. Satanás se deja caer en su silla y se agarra la cabeza. Asmodemónico asoma la cabeza por un lado del telón.)</span></p>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p>Patrón, patrón… ¿entonces a qué hora es la junta?</p></div></div>
       <p class="acotacion"><span class="acot">(Satanás le avienta su tridente. Asmodemónico desaparece y se oye un golpazo fuera de escena.)</span></p>
+      <div class="sonido" data-src="sonidos/golpe.mp3" data-nombre="Golpe" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde fuera)</span> ¡Presente, patrón!</p></div></div>
       <p class="acotacion"><span class="acot">(Satanás se pone de pie y, ya solo, se prepara para una carcajada diabólica. Levanta los brazos, echa la cabeza para atrás y abre la boca, pero antes de que le salga la risa se oye una voz de mujer desde fuera.)</span></p>
       <div class="linea p-lucifernanda"><div class="quien">Doña Lucifernanda</div><div class="dice"><p><span class="acot">(Desde fuera, con una voz que hace temblar el escenario)</span> ¡Satanááás! ¡¿Ya sacaste la basura?!</p></div></div>
@@ -423,6 +476,7 @@
     <section id="acto-3" class="acto">
       <h2><span>Acto 3</span> Conocemos a los pastores</h2>
       <p class="acotacion"><span class="acot">(Ambientado en un ranchito)</span></p>
+      <div class="sonido" data-src="sonidos/grillos.mp3" data-nombre="Grillos de noche" data-origen="sugerido" data-volumen="40" data-repetir></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Ándenle, mis hijos, que nos agarra la noche y luego no alcanzamos a ver bien para hacer la oración.</p></div></div>
       <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>No se apure, mi padre, ahorita traigo leñita pa hacer lumbrita, sirve que no nos entumimos.</p></div></div>
       <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Ándale, pazguato, eres capaz de quemar todo el cerro y luego nos va a traer entre ojos el del ejido, de por sí no nos quiere porque el tarugo de Espiridión dejó ir a las vacas y destrozaron las milpas del hacendado Don Porfirio.</p></div></div>
@@ -460,6 +514,7 @@
     <section id="acto-4" class="acto">
       <h2><span>Acto 4</span> El plan de los ángeles</h2>
       <p class="acotacion"><span class="acot">(En el cielo. Entra el Ángel Gabriel con solemnidad. A su lado están Seráfica, una angelita muy “fresa”, y Justicio, un angelito de barrio, buchón y muy seguro de sí mismo.)</span></p>
+      <div class="sonido" data-src="sonidos/cielo.mp3" data-nombre="Música solemne del cielo" data-origen="sugerido" data-volumen="50" data-repetir></div>
       <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Seres celestiales, ha llegado la hora.</p></div></div>
       <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿La hora de qué, jefe? Porque si es la hora del descanso, yo ya estaba pensando en bajar por un cafecito.</p></div></div>
       <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡No, pues qué descanso ni qué nada! Cuando el Patrón manda llamar, uno se reporta. Aquí estamos al tiro.</p></div></div>
@@ -590,6 +645,7 @@
       <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Ay, hijo! Para eso sí eres bueno.</p></div></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Silencio! Miren el cielo.</p></div></div>
       <p class="acotacion"><span class="acot">(Una luz ilumina la escena. Aparece el ÁNGEL GABRIEL. Todos los pastores se levantan asustados.)</span></p>
+      <div class="sonido" data-src="sonidos/gloria.mp3" data-nombre="Coro de ángeles" data-origen="sugerido" data-volumen="70"></div>
       <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡No teman!</p></div></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Yo no temo! <span class="acot">(Abraza a Doña Nieves.)</span></p></div></div>
       <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Suéltame, viejo bruto! ¡Me estás apretando!</p></div></div>
@@ -687,6 +743,7 @@
     <section id="acto-6" class="acto">
       <h2><span>Acto 6</span> Los pastores en camino a Belén</h2>
       <p class="acotacion"><span class="acot">(Los pastores aparecen en camino muy cansados)</span></p>
+      <div class="sonido" data-src="sonidos/pasos.mp3" data-nombre="Pasos en el camino" data-origen="sugerido" data-volumen="60" data-repetir></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Ay, hijos míos, ya me duelen los huesos que no sabía que tenía nomás de puro caminar.</p></div></div>
       <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>No te quejes, viejo flojo, tenemos que llegar a Belén. El angelito dijo que ahí está el Mesías.</p></div></div>
       <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Pero cuánto falta, amá?</p></div></div>
@@ -749,6 +806,7 @@
     <section id="acto-7" class="acto">
       <h2><span>Acto 7</span> Los demonios engañan a los pastores</h2>
       <p class="acotacion"><span class="acot">(Aparecen CANDELA y SULFUROSO escondidos detrás de unas rocas o arbustos. Están esperando a los pastores.)</span></p>
+      <div class="sonido" data-src="sonidos/montana.mp3" data-nombre="Música de los demonios" data-origen="sugerido" data-volumen="40" data-repetir></div>
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Shhh... ahí vienen esos pastores.</p></div></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Eiii! Ya los divisé. Déjame marcarles el alto.</p></div></div>
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Lo detiene.)</span> ¡Eit, espera! ¿No puedes hacer algo sin sacar el arma?</p></div></div>
@@ -760,6 +818,7 @@
       <p class="acotacion"><span class="acot">(Sulfuroso sale del escondite y se coloca en medio del camino. Los pastores entran a escena cansados.)</span></p>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Alto ahí!</p></div></div>
       <p class="acotacion"><span class="acot">(Saca un arma. Los pastores se asustan.)</span></p>
+      <div class="sonido" data-src="sonidos/arma.mp3" data-nombre="Cargar el arma" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Quietecitos todos! ¡Aquí puro Cártel de los Fariseos!</p></div></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Ya nos salieron los soldados con tenis!</p></div></div>
       <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Cleto, cállate, que nos van a disparar!</p></div></div>
@@ -835,6 +894,7 @@
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¿Cansados de que los poderosos tengan todo mientras ustedes no tienen nada?</p></div></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Hasta ahí sí estamos de acuerdo!</p></div></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Entonces yo les propongo algo sencillo. <span class="acot">(Saca una pistola y la muestra.)</span></p></div></div>
+      <div class="sonido" data-src="sonidos/arma.mp3" data-nombre="Cargar el arma" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Poder.</p></div></div>
       <p class="acotacion"><span class="acot">(Los pastores retroceden asustados.)</span></p>
       <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Ay, caracoles! ¿Qué es ese instrumento del diablo?</p></div></div>
@@ -898,6 +958,7 @@
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Yo solamente digo la verdad.</p></div></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Entonces, ¿qué dicen? ¿Van a seguir esperando que alguien venga a salvarlos? ¿O van a salvarse ustedes mismos?</p></div></div>
       <p class="acotacion"><span class="acot">(Los pastores se miran entre ellos en silencio. Al final todos asienten y Don Cleto da un paso al frente, estira la mano para tomar el arma, pero antes de que la tome, la escena se corta)</span></p>
+      <div class="sonido" data-src="sonidos/timbal.mp3" data-nombre="Redoble de suspenso" data-origen="sugerido" data-volumen="100"></div>
       <p class="acotacion"><span class="acot">(Cierra telón)</span></p>
     </section>
     <section id="acto-8" class="acto">
@@ -919,6 +980,7 @@
       <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues claro. ¿Qué quieres? ¿Mandarle una paloma mensajera?</p></div></div>
       <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Justicio, somos ángeles.</p></div></div>
       <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Precisamente. Hay que modernizarse. <span class="acot">(Marca.)</span> ¿Bueno? ¿Patrón? ¿Qué pasó, jefe? Tenemos un pequeño inconveniente...</p></div></div>
+      <div class="sonido" data-src="sonidos/marcar.mp3" data-nombre="Marcar el celular" data-origen="sugerido" data-volumen="100"></div>
       <p class="acotacion"><span class="acot">(Seráfica lo mira preocupada.)</span></p>
       <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Sí... se nos fueron los pastores. Sí, Patrón. Se nos pelaron.</p></div></div>
       <p class="acotacion"><span class="acot">(Pausa.)</span></p>
@@ -1060,6 +1122,7 @@
     <section id="acto-9" class="acto">
       <h2><span>Acto 9</span> Los ángeles salvan a los pastores</h2>
       <p class="acotacion"><span class="acot">(Continúa la escena, los pastores aparecen con cadenas, relojes y pulseras, aventando billetes al cielo, corridos de fondo, bebiendo alcohol mientras los pastores y los diablos se están divirtiendo, y están bramando de alegría un poco ebrios)</span></p>
+      <div class="sonido" data-src="sonidos/corrido.mp3" data-nombre="Corrido de fondo" data-origen="acotacion" data-volumen="50" data-repetir></div>
       <p class="acotacion"><span class="acot">(Cada pastor trae un arma)</span></p>
       <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Qué es esto!</p></div></div>
       <p class="acotacion"><span class="acot">(Los pastores voltean asustados.)</span></p>
@@ -1114,6 +1177,7 @@
       <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Espiridión!</p></div></div>
       <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Pues hay que preguntar!</p></div></div>
       <p class="acotacion"><span class="acot">(De pronto se escucha una música más fuerte. Entra Satanás.)</span></p>
+      <div class="sonido" data-src="sonidos/toccata.mp3" data-nombre="Entrada de Satanás" data-origen="acotacion" data-volumen="90"></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Ya fue suficiente!</p></div></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Patrón!</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡¿Cómo es posible que unos simples ángeles estén echando a perder todo nuestro trabajo?!</p></div></div>
@@ -1170,11 +1234,13 @@
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Pues dime!</p></div></div>
       <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¿Pues qué quieres que te diga?</p></div></div>
       <p class="acotacion"><span class="acot">(El Ángel Gabriel y Satanás se empechan como boxeadores, los pastores se bajan con miedo del escenario quedando enfrente.)</span></p>
+      <div class="sonido" data-src="sonidos/campana.mp3" data-nombre="Campana de box" data-origen="sugerido" data-volumen="100"></div>
       <p class="acotacion"><span class="acot">(Seráfica y Candela pasan al frente.)</span></p>
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Barriendo con la mirada)</span> ¡Qué oso! O sea, si con esa ropa de tianguis se visten en el cielo, pues estoy mejor en el infierno.</p></div></div>
       <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Disculpa?, ¿me hablas a mí? Podrá ser muy ropa de tianguis, pero al menos no traigo bien puestos los cuernos.</p></div></div>
       <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>¿Ah, sí? ¿Estás segura?</p></div></div>
       <p class="acotacion"><span class="acot">(Candela suelta chispas al suelo y Seráfica le responde con lo mismo)</span></p>
+      <div class="sonido" data-src="sonidos/chispas.mp3" data-nombre="Chispas" data-origen="sugerido" data-volumen="100"></div>
       <p class="acotacion"><span class="acot">(Justicio y Sulfuroso pasan al frente del escenario)</span></p>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Dirigiéndose al público)</span> ¿Y a este de qué feria o de qué circo lo sacaron?</p><p>Jaja, por cierto, por aquí hay unos de Elektra; me acaban de decir que ya van tres meses que no das tus abonos.</p></div></div>
       <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Y tú quién eres o a qué te dedicas?</p></div></div>
@@ -1182,9 +1248,13 @@
       <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ah, es que desde que te vi te iba a pedir tu autógrafo; pensé que eras Zacarías Tercero de Los Héroes del Norte.</p></div></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Qué!</p></div></div>
       <p class="acotacion"><span class="acot">(Sulfuroso lanza chispas al suelo y Justicio le responde)</span></p>
+      <div class="sonido" data-src="sonidos/chispas.mp3" data-nombre="Chispas" data-origen="sugerido" data-volumen="100"></div>
       <p class="acotacion"><span class="acot">(Ángel Gabriel y Satanás regresan al frente, se preparan para pelear Ángel Gabriel con su espada y Satanás con su tridente)</span></p>
+      <div class="sonido" data-src="sonidos/batalla.mp3" data-nombre="Música de la batalla final" data-origen="pedido" data-volumen="70" data-repetir></div>
       <p class="acotacion"><span class="acot">(Pelean mientras los demonios, ángeles y pastores gritan mientras pelean)</span></p>
+      <div class="sonido" data-src="sonidos/espadas.mp3" data-nombre="Choque de espadas" data-origen="sugerido" data-volumen="100" data-repetir></div>
       <p class="acotacion"><span class="acot">(Ángel Gabriel vence a Satanás)</span></p>
+      <div class="sonido" data-src="sonidos/fanfarria.mp3" data-nombre="Fanfarria de victoria" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¿Entonces qué salsa pica más?</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Demonios! ¡Nos vamos!</p></div></div>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Pero, patrón…</p></div></div>
@@ -1242,8 +1312,10 @@
       <div class="linea p-lucifernanda"><div class="quien">Doña Lucifernanda</div><div class="dice"><p><span class="acot">(Se levanta despacio y Satanás retrocede)</span> Y ya me contaron por ahí que en tu casa mandas tú.</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Con vocecita de niño, abrazando su tridente doblado)</span> ¿Quién dijo? ¡Fue Sulfuroso, mi Luci! ¡Yo sería incapaz!</p></div></div>
       <p class="acotacion"><span class="acot">(Entra a toda carrera Asmodemónico, se pisa la cola y llega de panza hasta los pies de Satanás.)</span></p>
+      <div class="sonido" data-src="sonidos/golpe.mp3" data-nombre="Golpe" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p>¡Patrón, patrón! ¡Vengo a avisarle que ya viene Gabriel con su espada! ¡Y que no se vaya a encontrar a su señora, porque anda bien enojada! <span class="acot">(Voltea y la ve)</span> Buenas noches, doñita.</p></div></div>
       <p class="acotacion"><span class="acot">(Doña Lucifernanda avienta la chancla sin voltear a verlo. Se oye un chanclazo y Asmodemónico cae tieso como una tabla.)</span></p>
+      <div class="sonido" data-src="sonidos/golpe.mp3" data-nombre="Golpe" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde el suelo, levanta un dedo)</span> ¡Presente, doñita!</p></div></div>
       <div class="linea p-lucifernanda"><div class="quien">Doña Lucifernanda</div><div class="dice"><p><span class="acot">(Agarra a Satanás de la oreja)</span> ¡Satanás Belcebú Mefistófeles! A la casa, que tu mamá ya lleva tres siglos esperando con la cena.</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Al público, con la oreja jalada)</span> Como dijo Sulfuroso: siempre tiene que haber alguien arriba. <span class="acot">(Se zafa, corre al frente, voltea al cielo y junta las manos)</span> ¡Ay, Satán mío… digo, Dios mío! ¡Sálvame!</p></div></div>
@@ -1256,6 +1328,7 @@
     <section id="acto-10" class="acto">
       <h2><span>Acto 10</span> Los pastores llegan a adorar al Niño a Belén</h2>
       <p class="acotacion"><span class="acot">(El telón se abre y se ve a José, María y al Niño junto con los tres Reyes Magos, los ángeles Gabriel, Seráfica y Justicio en el portal. Los pastores van entrando uno por uno, se arrodillan, dicen su línea y adoran al niño)</span></p>
+      <div class="sonido" data-src="sonidos/adeste.mp3" data-nombre="Música de la escena final" data-origen="pedido" data-volumen="45" data-repetir></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Niño Dios, pequeño y humilde, hoy vengo a tus pies a pedir: que nunca nos falte el valor para trabajar y vivir.</p></div></div>
       <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Niño hermoso, luz de esperanza, recibe mi humilde oración: que ningún hombre sea humillado, y que todos vivamos con dignidad y corazón.</p></div></div>
       <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Yo vengo cansado del campo, de injusticias y explotación; pero ante ti, Niño bendito, renace en mí la esperanza y la liberación.</p></div></div>
@@ -1276,6 +1349,7 @@
       <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Que el nacimiento de este Niño nos recuerde que la dignidad de cada persona merece ser respetada!</p></div></div>
       <div class="linea p-grupo"><div class="quien">Todos</div><div class="dice"><p>¡Gloria a Dios en las alturas y paz en la tierra!</p></div></div>
       <p class="acotacion"><span class="acot">(Todos se arrodillan frente al Niño Dios. Música de Navidad. Se cierra el telón.)</span></p>
+      <div class="sonido" data-src="sonidos/nochedepaz.mp3" data-nombre="Música de Navidad" data-origen="acotacion" data-volumen="80"></div>
       <p class="fin">FIN</p>
     </section>
 
@@ -1296,6 +1370,38 @@
       <p class="grafica-nota">Se cuentan las palabras habladas de toda la obra. No incluye acotaciones ni las líneas a coro de “Todos”. Las líneas que dicen dos personajes juntos cuentan para ambos.</p>
     </section>
 
+    <section id="sonidos">
+      <h2>Sonidos</h2>
+      <p class="creditos-nota">Todos los sonidos son gratuitos y vienen de Wikimedia Commons.</p>
+      <div class="creditos-marco">
+        <table class="creditos">
+          <thead><tr><th scope="col">Sonido</th><th scope="col">Autor</th><th scope="col">Licencia</th><th scope="col">Cambios</th><th scope="col">Fuente</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">Música celestial</th><td>Jgmo30</td><td>CC0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Gounod%27s_Ave_Maria_for_Chorus.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Música solemne del cielo</th><td>Antti Luode</td><td>CC BY 3.0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Ave_Maria_Instrumental_(Antti_Luode).mp3">Ver original</a></td></tr>
+          <tr><th scope="row">Coro de ángeles</th><td>Hermann Scherchen, director; London Symphony Orchestra; London Philharmonic Choir</td><td>Public domain</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Handel_-_Messiah,_Part_1_(Scherchen)_-_18._Glory_to_God_in_the_highest.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Música de los demonios</th><td>Grieg, Edvard; Musopen Symphony Orchestra</td><td>Public domain</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Entrada de Satanás</th><td>Norbert Schenk</td><td>CC BY 4.0</td><td>Recortado a 75 s, convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Bach,_Toccata_und_Fuge_d-moll_BWV_565,_Norbert_Schenk.mp3">Ver original</a></td></tr>
+          <tr><th scope="row">Corrido de fondo</th><td>Kenmayer (mezcla), Sean Buss (guitarra), Elisa (voz)</td><td>CC BY-SA 3.0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:La_Cucaracha.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Música de Navidad</th><td>Franz Xaver Gruber (música), John F. Young (letra), United States Air Force Band (interpretación)</td><td>Public domain</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Silent_Night_-_Singing_Sergeants_-_United_States_Air_Force_Band.mp3">Ver original</a></td></tr>
+          <tr><th scope="row">Música de la escena final</th><td>Pracchia-78</td><td>Public domain</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Adeste_fideles.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Música de la batalla final</th><td>Modest Petrovich Mussorgsky</td><td>Public domain</td><td>Recortado a 150 s, convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_night_on_bald_mountain.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Grillos de noche</th><td>Fortunamarco2003</td><td>CC BY-SA 4.0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Night_original_format.wav">Ver original</a></td></tr>
+          <tr><th scope="row">Golpe</th><td>Gravity Sound</td><td>CC BY 4.0</td><td>Nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Hard_Punch_Flesh_(Gravity_Sound).mp3">Ver original</a></td></tr>
+          <tr><th scope="row">Risa malvada</th><td>freesound</td><td>CC0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Evil_laugh.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Redoble de suspenso</th><td>DrTrumpet</td><td>CC BY-SA 4.0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Paukenwirbel_auf_einer_Wiener_Pauke_mit_acht_verschiedenen_Schlegeln.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Campana de box</th><td>IOII-IOIO-IIOI</td><td>CC0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Dingdingding.wav">Ver original</a></td></tr>
+          <tr><th scope="row">Marcar el celular</th><td>Jahoe</td><td>Public domain</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:DTMF_dialing.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Cargar el arma</th><td>Mike Koenig (subido por Dantedun)</td><td>CC BY-SA 4.0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Gun_Cocking_Slow-Mike_Koenig-1019236976.wav">Ver original</a></td></tr>
+          <tr><th scope="row">Chispas</th><td>No indicado en la fuente</td><td>CC BY-SA 4.0</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Electric_Shock.ogg">Ver original</a></td></tr>
+          <tr><th scope="row">Fanfarria de victoria</th><td>United States Air Force Heritage of America Band</td><td>Public domain</td><td>Convertido a MP3 y nivelado</td><td><a href="https://commons.wikimedia.org/wiki/File:Ceremonial_Fanfare_-_Concert_Band_-_United_States_Air_Force_Heritage_of_America_Band.mp3">Ver original</a></td></tr>
+          <tr><th scope="row">Pasos en el camino</th><td>Gravity Sound</td><td>CC BY 4.0</td><td>Un paso repetido para formar una caminata</td><td><a href="https://commons.wikimedia.org/wiki/File:Footstep_on_Gravel_(Gravity_Sound).mp3">Ver original</a></td></tr>
+          <tr><th scope="row">Choque de espadas</th><td>Gravity Sound</td><td>CC BY 4.0</td><td>Cinco choques combinados en una pelea de 15 s</td><td><a href="https://commons.wikimedia.org/wiki/File:Sword_Clash_(Gravity_Sound).mp3">Ver original</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <section id="por-revisar" class="revision">
       <h2>⚠ Por revisar</h2>
       <ul>
@@ -1303,6 +1409,8 @@
       </ul>
     </section>
   </main>
+
+  <button type="button" id="detener-todo" hidden>■ Detener todo</button>
 
   <script>
     (function () {
@@ -1451,6 +1559,122 @@
         angulo = a1;
       });
       reposo();
+    })();
+    (function () {
+      var ORIGEN = { acotacion: 'Lo pide la acotación', pedido: 'Música de fondo', sugerido: 'Sugerido' };
+      var SALTO = 5, PASO_VOLUMEN = 0.1;
+      var detenerTodo = document.getElementById('detener-todo');
+      var reproductores = [];
+
+      function reloj(s) {
+        if (!isFinite(s)) return '–:––';
+        var m = Math.floor(s / 60), r = Math.floor(s % 60);
+        return m + ':' + (r < 10 ? '0' : '') + r;
+      }
+      function actualizarTodo() {
+        detenerTodo.hidden = !reproductores.some(function (r) { return !r.audio.paused; });
+      }
+
+      document.querySelectorAll('.sonido').forEach(function (caja) {
+        var nombre = caja.dataset.nombre;
+        var audio = new Audio();
+        audio.preload = 'none';
+        audio.src = caja.dataset.src;
+        audio.loop = 'repetir' in caja.dataset;
+        audio.volume = Number(caja.dataset.volumen) / 100;
+
+        var cabeza = document.createElement('div');
+        cabeza.className = 'sonido-cabeza';
+        var etiqueta = document.createElement('span');
+        etiqueta.className = 'sonido-nombre';
+        etiqueta.textContent = '♪ ' + nombre;
+        var origen = document.createElement('span');
+        origen.className = 'sonido-origen';
+        origen.textContent = ORIGEN[caja.dataset.origen] + (audio.loop ? ' · se repite' : '');
+        var estado = document.createElement('span');
+        estado.className = 'sonido-estado';
+        estado.setAttribute('aria-live', 'off');
+        cabeza.appendChild(etiqueta);
+        cabeza.appendChild(origen);
+        cabeza.appendChild(estado);
+
+        var botones = document.createElement('div');
+        botones.className = 'sonido-botones';
+        botones.setAttribute('role', 'group');
+        botones.setAttribute('aria-label', 'Controles de ' + nombre);
+        function boton(texto, ayuda, accion) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = texto;
+          b.title = ayuda;
+          b.setAttribute('aria-label', ayuda + ': ' + nombre);
+          b.addEventListener('click', accion);
+          botones.appendChild(b);
+          return b;
+        }
+
+        function pintar() {
+          estado.textContent = reloj(audio.currentTime) + ' / ' + reloj(audio.duration) +
+            ' · Vol ' + (audio.muted ? 'silenciado' : Math.round(audio.volume * 100) + '%');
+        }
+        function detener() {
+          audio.pause();
+          audio.currentTime = 0;
+          pintar();
+        }
+        function saltar(segundos) {
+          var destino = Math.max(0, audio.currentTime + segundos);
+          audio.currentTime = isFinite(audio.duration) ? Math.min(destino, audio.duration) : destino;
+          pintar();
+        }
+        function cambiarVolumen(delta) {
+          audio.volume = Math.min(1, Math.max(0, Math.round((audio.volume + delta) * 10) / 10));
+          pintar();
+        }
+
+        var reproducir = boton('▶ Reproducir', 'Reproducir', function () {
+          if (audio.paused) {
+            audio.play().catch(function () { estado.textContent = 'No se pudo reproducir'; });
+          } else {
+            audio.pause();
+          }
+        });
+        boton('■ Detener', 'Detener', detener);
+        boton('« 5 s', 'Atrasar 5 segundos', function () { saltar(-SALTO); });
+        boton('5 s »', 'Adelantar 5 segundos', function () { saltar(SALTO); });
+        boton('Vol −', 'Bajar volumen', function () { cambiarVolumen(-PASO_VOLUMEN); });
+        boton('Vol +', 'Subir volumen', function () { cambiarVolumen(PASO_VOLUMEN); });
+        var silencio = boton('Silenciar', 'Silenciar', function () {
+          audio.muted = !audio.muted;
+          silencio.setAttribute('aria-pressed', String(audio.muted));
+          pintar();
+        });
+        silencio.setAttribute('aria-pressed', 'false');
+
+        audio.addEventListener('play', function () {
+          caja.classList.add('sonando');
+          reproducir.textContent = '❚❚ Pausar';
+          actualizarTodo();
+        });
+        audio.addEventListener('pause', function () {
+          caja.classList.remove('sonando');
+          reproducir.textContent = '▶ Reproducir';
+          actualizarTodo();
+        });
+        audio.addEventListener('ended', detener);
+        audio.addEventListener('timeupdate', pintar);
+        audio.addEventListener('loadedmetadata', pintar);
+        audio.addEventListener('error', function () { estado.textContent = 'No se pudo cargar el sonido'; });
+
+        caja.appendChild(cabeza);
+        caja.appendChild(botones);
+        pintar();
+        reproductores.push({ audio: audio, detener: detener });
+      });
+
+      detenerTodo.addEventListener('click', function () {
+        reproductores.forEach(function (r) { if (!r.audio.paused) r.detener(); });
+      });
     })();
   </script>
 </body>
