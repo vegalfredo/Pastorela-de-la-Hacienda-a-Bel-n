@@ -27,6 +27,7 @@
       --satanas: #FF7F72;
       --candela: #FFA64D;
       --sulfuroso: #EBD534;
+      --asmodemonico: #FF2A2A;
       --cleto: #FF3FA0;
       --nieves: #B4F0E0;
       --tarsicio: #3DCB8A;
@@ -44,6 +45,7 @@
     .p-satanas { --color: var(--satanas); }
     .p-candela { --color: var(--candela); }
     .p-sulfuroso { --color: var(--sulfuroso); }
+    .p-asmodemonico { --color: var(--asmodemonico); }
     .p-cleto { --color: var(--cleto); }
     .p-nieves { --color: var(--nieves); }
     .p-tarsicio { --color: var(--tarsicio); }
@@ -203,8 +205,10 @@
     .leyenda caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
     .leyenda th, .leyenda td { padding: .36rem .5rem; font-weight: 400; text-align: left; }
     .leyenda td { text-align: right; font-variant-numeric: tabular-nums; }
-    .leyenda tr { cursor: pointer; }
-    .leyenda tr:hover, .leyenda tr:focus-visible, .leyenda tr.activa { background: var(--superficie); outline: none; }
+    .leyenda thead th { color: var(--secundario); font-size: .85rem; border-bottom: 1px solid var(--borde); }
+    .leyenda th.num { text-align: right; }
+    .leyenda tbody tr { cursor: pointer; }
+    .leyenda tbody tr:hover, .leyenda tbody tr:focus-visible, .leyenda tbody tr.activa { background: var(--superficie); outline: none; }
     .muestra {
       display: inline-block;
       width: .8rem;
@@ -214,6 +218,7 @@
       background: var(--color);
       box-shadow: 0 0 7px var(--color);
     }
+    .texto-nuevo { margin: 1.25rem 0; padding: .75rem 1rem; border: 2px solid var(--texto); border-radius: 16px; }
     .grafica-nota { margin: 1.5rem 0 0; color: var(--secundario); font-size: .92rem; }
   </style>
 </head>
@@ -268,7 +273,7 @@
         <article class="ficha p-satanas">
           <h4>Satanás</h4>
           <p>Jefe de los demonios, iracundo y con tridente. Manda como en sala de juntas y se cree muy guapo. Sabe que contra Dios no puede, pero con los hombres sí.</p>
-          <p class="meta">Actos 2, 9 · 30 parlamentos</p>
+          <p class="meta">Actos 2, 9 · 34 parlamentos</p>
         </article>
         <article class="ficha p-candela">
           <h4>Candela</h4>
@@ -279,6 +284,11 @@
           <h4>Sulfuroso</h4>
           <p>Demonio estilo narco, el “Cochiloco de Temu”. Cizañero, con reloj caro y cadenas, saca el arma por todo. Tienta a los pastores con poder y miedo.</p>
           <p class="meta">Actos 2, 7, 9 · 68 parlamentos</p>
+        </article>
+        <article class="ficha p-asmodemonico">
+          <h4>Asmodemónico</h4>
+          <p>Demonio chalán de Satanás. Despistado, pero confiable. Siempre llega tarde, se entera al último y se le ocurre lo mismo que al jefe, justo después de que al jefe se le ocurrió.</p>
+          <p class="meta">Acto 2 · 7 parlamentos</p>
         </article>
       </div>
       <h3>Los pastores</h3>
@@ -381,6 +391,23 @@
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Sobres, pues! Entonces yo me encargaré de que los jóvenes se dejen pervertir, como dijo mi expresidente, “ténganme pajienjia y confianja”.</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Maravilloso! Manos a la obra. Pónganse a chambear, <span class="acot">(con voz amenazante)</span> y cuidado con fracasar, porque ay de ustedes, que Dios los agarre confesados.</p></div></div>
       <div class="linea p-grupo"><div class="quien"><span class="p-candela">Candela</span> y <span class="p-sulfuroso">Sulfuroso</span></div><div class="dice"><p><span class="acot">(Se asustan y corren)</span></p></div></div>
+      <div class="texto-nuevo">
+      <p class="acotacion"><span class="acot">(Satanás se queda solo y se sienta en su silla, muy satisfecho. Entra a toda carrera Asmodemónico, abrazando una montaña de papeles. Se pisa la cola, vuela de panza por todo el escenario y se detiene justo a los pies de Satanás. Los papeles le van cayendo encima, uno por uno.)</span></p>
+      <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde el suelo, levanta un dedo)</span> ¡Presente, jefe! ¡Ya llegué a la junta!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Sin voltear a verlo)</span> Asmodemónico… la junta ya se acabó.</p></div></div>
+      <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Se levanta de un brinco, se vuelve a pisar la cola y cae de sentón. Se levanta otra vez y camina con las manos atrás, igualito a Satanás)</span> No se apure, jefe, que en el camino se me ocurrió un plan. ¡Óigame bien! Ya ve que el de allá arriba quiere redimir a los asquerosos humanos. Pues hay que hacer que se acostumbren al placer del pecado, que traigan los roperos llenos a más no poder. <span class="acot">(Se mete papeles en la ropa hasta quedar todo inflado)</span> ¡Y hay que enfriarles el corazón para que no les importe el prójimo! <span class="acot">(Se abraza, tiembla y le castañetean los dientes)</span> ¡Y empezamos con los poderosos y los influencers! <span class="acot">(Se toma una selfie sacando la lengua y se deslumbra con su propio flash)</span></p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Se pone de pie despacio, lo mira y respira hondo)</span> Eso… es… exactamente… lo que acabamos de decir.</p></div></div>
+      <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Se queda pensando, se rasca la cabeza con su tridente y se pica solo)</span> ¡Ay! <span class="acot">(Se le ilumina la cara)</span> ¡Ah, pero se me acaba de ocurrir otra, jefe! Contra Dios no podemos hacer nada, ¡pero en los hombres podemos hacer lo que queramos! Y lo peor es que ellos solitos nos buscan. <span class="acot">(Le da un codazo amistoso a Satanás)</span> ¿Eh? ¿Eh? ¡Un plan diabólicamente perfecto!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Iracundo, lo agarra de la ropa, lo acerca a su cara y le grita con todas sus fuerzas)</span> ¡Eso lo dije yo hace cinco minutos!</p></div></div>
+      <p class="acotacion"><span class="acot">(A Asmodemónico se le va la cara para atrás con el grito. Olfatea, se le van los ojos y se tambalea. Satanás lo suelta y cae tieso como una tabla.)</span></p>
+      <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde el suelo, con un hilito de voz)</span> Y luego… a Satanás le apesta el hocico.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Enojado)</span> ¡¿Cómo dices que dijiste?!</p></div></div>
+      <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Se levanta de golpe, firme, con pena y miedo)</span> Nada, nada, jefe, digo que ya nos pongamos a trabajar.</p></div></div>
+      <p class="acotacion"><span class="acot">(Satanás señala la salida con su tridente. Asmodemónico sale corriendo para el lado contrario y se estrella contra la pared. Da media vuelta, mareado, le hace un saludo a la pared y por fin sale por donde era. Satanás se deja caer en su silla y se agarra la cabeza. Asmodemónico asoma la cabeza por un lado del telón.)</span></p>
+      <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p>Jefe… ¿entonces a qué hora es la junta?</p></div></div>
+      <p class="acotacion"><span class="acot">(Satanás le avienta su tridente. Asmodemónico desaparece y se oye un golpazo fuera de escena.)</span></p>
+      <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde fuera)</span> ¡Presente, jefe!</p></div></div>
+      </div>
       <p class="acotacion"><span class="acot">(Se cierra el telón)</span></p>
     </section>
     <section id="acto-3" class="acto">
@@ -1215,6 +1242,9 @@
         </figure>
         <table class="leyenda">
           <caption>Porcentaje de palabras por personaje</caption>
+          <thead>
+            <tr><th scope="col">Personaje</th><th scope="col" class="num">%</th><th scope="col" class="num">Palabras</th></tr>
+          </thead>
           <tbody id="dona-tabla"></tbody>
         </table>
       </div>
@@ -1357,8 +1387,11 @@
         th.appendChild(document.createTextNode(d.nombre));
         var td = document.createElement('td');
         td.textContent = porcentaje(d);
+        var tdPalabras = document.createElement('td');
+        tdPalabras.textContent = d.palabras.toLocaleString('es-MX');
         fila.appendChild(th);
         fila.appendChild(td);
+        fila.appendChild(tdPalabras);
         tabla.appendChild(fila);
         d.fila = fila;
 
