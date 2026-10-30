@@ -1,0 +1,4 @@
+# Guion original en Word: no se publica
+*.doc
+*.docx
+~$*

@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>De la hacienda a Belén</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,700&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --fondo: #18191C;
+      --superficie: #24262A;
+      --borde: #43464C;
+      --texto: #E8E8E8;
+      --secundario: #AEB2B8;
+      --acotacion: #FFFFFF;
+      --resplandor: 0 0 4px rgba(255, 255, 255, .75), 0 0 12px rgba(255, 255, 255, .45);
+      --aviso: #FFE600;
+      --aviso-texto: #111111;
+      --col-quien: 9.5rem;
+      --separacion: 1rem;
+      --gabriel: #FFF0A8;
+      --serafica: #FF9ED8;
+      --justicio: #4FD6EB;
+      --satanas: #FF7F72;
+      --candela: #FFA64D;
+      --sulfuroso: #EBD534;
+      --cleto: #FF3FA0;
+      --nieves: #B4F0E0;
+      --tarsicio: #3DCB8A;
+      --espiridion: #B9E84A;
+      --jovita: #D19CFF;
+      --joaquina: #A9B4FF;
+      --maria: #9CC8FF;
+      --jose: #B7D1A8;
+      --nino: #FFFFFF;
+      --reyes: #EBB9A6;
+    }
+    .p-gabriel { --color: var(--gabriel); }
+    .p-serafica { --color: var(--serafica); }
+    .p-justicio { --color: var(--justicio); }
+    .p-satanas { --color: var(--satanas); }
+    .p-candela { --color: var(--candela); }
+    .p-sulfuroso { --color: var(--sulfuroso); }
+    .p-cleto { --color: var(--cleto); }
+    .p-nieves { --color: var(--nieves); }
+    .p-tarsicio { --color: var(--tarsicio); }
+    .p-espiridion { --color: var(--espiridion); }
+    .p-jovita { --color: var(--jovita); }
+    .p-joaquina { --color: var(--joaquina); }
+    .p-maria { --color: var(--maria); }
+    .p-jose { --color: var(--jose); }
+    .p-nino { --color: var(--nino); }
+    .p-reyes { --color: var(--reyes); }
+    .p-grupo { --color: var(--texto); }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 3rem; }
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font: 400 1.0625rem/1.6 Literata, Georgia, "Times New Roman", serif;
+    }
+    a { color: inherit; }
+
+    .portada { max-width: 62rem; margin: 0 auto; padding: 2.5rem 1rem 1.5rem; }
+    .portada p { margin: 0; color: var(--secundario); }
+    h1 { margin: .15rem 0 .25rem; font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.1; }
+
+    .pestanas {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--fondo);
+      border-bottom: 1px solid var(--borde);
+    }
+    .pestanas ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .25rem;
+      max-width: 62rem;
+      margin: 0 auto;
+      padding: .4rem 1rem;
+      list-style: none;
+    }
+    .pestanas a {
+      display: block;
+      padding: .45rem .55rem;
+      border-radius: 6px;
+      font: 700 .9rem/1.3 system-ui, "Segoe UI", sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .pestanas a:hover { background: var(--superficie); }
+    .pestanas a:focus-visible { outline: 2px solid var(--texto); outline-offset: 1px; }
+    .pestanas a[aria-current] { background: var(--texto); color: var(--fondo); }
+    .pestanas .pendientes a { color: var(--aviso); }
+    .pestanas .pendientes a[aria-current] { background: var(--aviso); color: var(--aviso-texto); }
+
+    main { max-width: 62rem; margin: 0 auto; padding: 0 1rem 4rem; }
+    section { padding-top: 2.5rem; }
+    h2 {
+      margin: 0 0 1.25rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--borde);
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
+    h2 span { color: var(--secundario); font-weight: 400; margin-right: .35rem; }
+    h3 { margin: 1.75rem 0 .75rem; font-size: 1.1rem; color: var(--secundario); font-weight: 400; }
+
+    .fichas { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: .75rem; }
+    .ficha {
+      padding: .9rem 1rem;
+      background: var(--superficie);
+      border-top: 5px solid var(--color);
+      border-radius: 4px;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+    .ficha h4 { margin: 0 0 .4rem; color: var(--color); font-size: 1.15rem; }
+    .ficha p { margin: 0; }
+    .ficha .meta { margin-top: .6rem; color: var(--secundario); font: .8rem/1.4 system-ui, "Segoe UI", sans-serif; }
+    .mencionados { margin: 1.25rem 0 0; color: var(--secundario); font-size: .95rem; }
+
+    .linea {
+      display: grid;
+      grid-template-columns: var(--col-quien) 1fr;
+      gap: var(--separacion);
+      margin: .55rem 0;
+      color: var(--color);
+    }
+    .quien { font-weight: 700; line-height: 1.5; padding-top: .05rem; overflow-wrap: anywhere; }
+    .dice p { margin: 0; }
+    .dice p + p { margin-top: .35rem; }
+
+    .acot, .acotacion {
+      color: var(--acotacion);
+      text-shadow: var(--resplandor);
+      font-family: "Special Elite", "Courier Prime", "Courier New", Courier, monospace;
+      font-style: normal;
+      font-weight: 400;
+    }
+    .acotacion {
+      margin: .75rem 0 .75rem calc(var(--col-quien) + var(--separacion));
+      font-size: .98rem;
+      line-height: 1.5;
+    }
+
+    mark, .acot mark {
+      text-shadow: none;
+      padding: .05em .25em;
+      border-radius: 2px;
+      background: var(--aviso);
+      color: var(--aviso-texto);
+      font-weight: 700;
+    }
+    .nota {
+      margin: .4rem 0 .9rem calc(var(--col-quien) + var(--separacion));
+      padding: .55rem .8rem;
+      border-radius: 4px;
+      background: var(--aviso);
+      color: var(--aviso-texto);
+      font: .92rem/1.45 system-ui, "Segoe UI", sans-serif;
+      scroll-margin-top: 8rem;
+    }
+    .nota strong { text-transform: uppercase; letter-spacing: .03em; margin-right: .3rem; }
+
+    .revision { min-height: 100vh; }
+    .revision li { margin-bottom: .6rem; }
+    .revision strong { color: var(--aviso); }
+    .fin { margin: 2.5rem 0 0; text-align: center; font-size: 1.5rem; font-weight: 700; letter-spacing: .15em; }
+
+    @media (max-width: 40rem) {
+      .pestanas ul { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+      .linea { grid-template-columns: 1fr; gap: 0; margin: .9rem 0; }
+      .acotacion, .nota { margin-left: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    .grafica { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.5rem; }
+    .grafica figure { flex: 1 1 24rem; max-width: 30rem; margin: 0 auto; }
+    .grafica svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .rebanada {
+      fill: var(--color);
+      filter: drop-shadow(0 0 7px var(--color));
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+    .dona-activa .rebanada { opacity: .28; }
+    .dona-activa .rebanada.activa { opacity: 1; filter: drop-shadow(0 0 14px var(--color)); }
+    .dona-pct { fill: #111111; font: 700 15px system-ui, "Segoe UI", sans-serif; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+    .dona-pct.fuera, .dona-activa .dona-pct { fill: var(--texto); }
+    .dona-activa .dona-pct.activa:not(.fuera) { fill: #111111; }
+    .dona-centro { fill: var(--texto); font-weight: 700; font-size: 24px; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+    .dona-centro.chico { fill: var(--secundario); font-weight: 400; font-size: 17px; }
+    .leyenda { flex: 1 1 16rem; border-collapse: collapse; font: .98rem/1.3 system-ui, "Segoe UI", sans-serif; }
+    .leyenda caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .leyenda th, .leyenda td { padding: .36rem .5rem; font-weight: 400; text-align: left; }
+    .leyenda td { text-align: right; font-variant-numeric: tabular-nums; }
+    .leyenda tr { cursor: pointer; }
+    .leyenda tr:hover, .leyenda tr:focus-visible, .leyenda tr.activa { background: var(--superficie); outline: none; }
+    .muestra {
+      display: inline-block;
+      width: .8rem;
+      height: .8rem;
+      margin-right: .55rem;
+      border-radius: 3px;
+      background: var(--color);
+      box-shadow: 0 0 7px var(--color);
+    }
+    .grafica-nota { margin: 1.5rem 0 0; color: var(--secundario); font-size: .92rem; }
+  </style>
+</head>
+<body>
+  <header class="portada">
+    <p>Pastorela 2026</p>
+    <h1>De la hacienda a Belén</h1>
+    <p>Por: Hno. León</p>
+  </header>
+
+  <nav class="pestanas" aria-label="Secciones de la pastorela">
+    <ul>
+        <li><a href="#personajes">Personajes</a></li>
+        <li><a href="#acto-1" title="La anunciación">Acto 1</a></li>
+        <li><a href="#acto-2" title="Los demonios y su plan">Acto 2</a></li>
+        <li><a href="#acto-3" title="Conocemos a los pastores">Acto 3</a></li>
+        <li><a href="#acto-4" title="El plan de los ángeles">Acto 4</a></li>
+        <li><a href="#acto-5" title="La anunciación a los pastores">Acto 5</a></li>
+        <li><a href="#acto-6" title="Los pastores en camino a Belén">Acto 6</a></li>
+        <li><a href="#acto-7" title="Los demonios engañan a los pastores">Acto 7</a></li>
+        <li><a href="#acto-8" title="Los ángeles se encaminan a salvar a los pastores">Acto 8</a></li>
+        <li><a href="#acto-9" title="Los ángeles salvan a los pastores">Acto 9</a></li>
+        <li><a href="#acto-10" title="Los pastores llegan a adorar al Niño a Belén">Acto 10</a></li>
+        <li><a href="#palabras">Palabras</a></li>
+        <li class="pendientes"><a href="#por-revisar">⚠ Por revisar</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="personajes">
+      <h2>Personajes</h2>
+      <h3>El cielo</h3>
+      <div class="fichas">
+        <article class="ficha p-gabriel">
+          <h4>Ángel Gabriel</h4>
+          <p>Mensajero de Dios y jefe de Seráfica y Justicio. Solemne, pero se pica: acaba en duelo de adivinanzas y a espadazos con Satanás.</p>
+          <p class="meta">Actos 1, 4, 5, 9, 10 · 87 parlamentos</p>
+        </article>
+        <article class="ficha p-serafica">
+          <h4>Seráfica</h4>
+          <p>Angelita muy “fresa”. Vanidosa, se tarda arreglándose las alas, pero es la que estudia y pone orden. No soporta que le digan fresa.</p>
+          <p class="meta">Actos 4, 8, 9 · 113 parlamentos</p>
+        </article>
+        <article class="ficha p-justicio">
+          <h4>Justicio</h4>
+          <p>Angelito de barrio, buchón y seguro de sí mismo. Endeudado por su Itálica, resuelve todo con el celular y se pierde a los tres pasos. “Uno será buchón, pero tiene corazón.”</p>
+          <p class="meta">Actos 4, 8, 9, 10 · 132 parlamentos</p>
+        </article>
+      </div>
+      <h3>Los demonios</h3>
+      <div class="fichas">
+        <article class="ficha p-satanas">
+          <h4>Satanás</h4>
+          <p>Jefe de los demonios, iracundo y con tridente. Manda como en sala de juntas y se cree muy guapo. Sabe que contra Dios no puede, pero con los hombres sí.</p>
+          <p class="meta">Actos 2, 9 · 30 parlamentos</p>
+        </article>
+        <article class="ficha p-candela">
+          <h4>Candela</h4>
+          <p>Demonia fresa, presumida y clasista. Finge voz dulce y desprecia la ropa de los pastores. Tumba a Sulfuroso con una mano. Va tras los influencers y los poderosos.</p>
+          <p class="meta">Actos 2, 7, 9 · 36 parlamentos</p>
+        </article>
+        <article class="ficha p-sulfuroso">
+          <h4>Sulfuroso</h4>
+          <p>Demonio estilo narco, el “Cochiloco de Temu”. Cizañero, con reloj caro y cadenas, saca el arma por todo. Tienta a los pastores con poder y miedo.</p>
+          <p class="meta">Actos 2, 7, 9 · 68 parlamentos</p>
+        </article>
+      </div>
+      <h3>Los pastores</h3>
+      <div class="fichas">
+        <article class="ficha p-cleto">
+          <h4>Don Cleto</h4>
+          <p>Padre de familia, lleva bastón y dirige la oración. Quejumbroso y bromista. Se le van los ojos con el reloj de Sulfuroso y es el primero en estirar la mano hacia el arma.</p>
+          <p class="meta">Actos 3, 5, 6, 7, 9, 10 · 45 parlamentos</p>
+        </article>
+        <article class="ficha p-nieves">
+          <h4>Doña Nieves</h4>
+          <p>Madre regañona y de carácter firme. Es la primera en desconfiar de Sulfuroso y la conciencia de la familia: “El miedo no es respeto.”</p>
+          <p class="meta">Actos 3, 5, 6, 7, 9, 10 · 37 parlamentos</p>
+        </article>
+        <article class="ficha p-tarsicio">
+          <h4>Tarsicio</h4>
+          <p>Hijo con las manos callosas de trabajar. Presiente que esa noche algo va a pasar. Junta dinero para irse al norte y, como su hermano, tiene fama de borrachote.</p>
+          <p class="meta">Actos 3, 5, 6, 7, 9, 10 · 44 parlamentos</p>
+        </article>
+        <article class="ficha p-espiridion">
+          <h4>Espiridión</h4>
+          <p>Hijo atarantado y flojo, el que hace reír. Dejó ir a las vacas que destrozaron las milpas. Carga el costal de los regalos, y aun ante el Niño piensa en la comida.</p>
+          <p class="meta">Actos 3, 5, 6, 7, 9, 10 · 72 parlamentos</p>
+        </article>
+        <article class="ficha p-jovita">
+          <h4>Jovita</h4>
+          <p>Hija dramática y orgullosa, no se casa porque nadie pasa “la prueba de calidad”. Le dice burro a Espiridión, pero es quien ve la trampa: “seguimos siendo mandados, nomás que con pistola”.</p>
+          <p class="meta">Actos 3, 5, 6, 7, 9, 10 · 49 parlamentos</p>
+        </article>
+        <article class="ficha p-joaquina">
+          <h4>Joaquina</h4>
+          <p>Hija sarcástica y brava: quiere írsele encima a Candela. Dice que no se casa porque “el mercado está reescaso”. A Espiridión no le perdona una.</p>
+          <p class="meta">Actos 3, 5, 6, 7, 9, 10 · 35 parlamentos</p>
+        </article>
+      </div>
+      <h3>El portal de Belén</h3>
+      <div class="fichas">
+        <article class="ficha p-maria">
+          <h4>María</h4>
+          <p>Joven sencilla, sorprendida de que Dios se fije en su pequeñez. Pregunta, duda y al final acepta: “hágase en mí según lo que dices”.</p>
+          <p class="meta">Acto 1 · 6 parlamentos</p>
+        </article>
+        <article class="ficha p-jose">
+          <h4>José</h4>
+          <p>El texto solo lo sitúa en el portal, junto a María y el Niño.</p>
+          <p class="meta">Sin diálogo · Acto 10</p>
+        </article>
+        <article class="ficha p-nino">
+          <h4>El Niño</h4>
+          <p>El Mesías, acostado en un pesebre, humilde y pobre. Es la meta de todo el camino de los pastores.</p>
+          <p class="meta">Sin diálogo · Acto 10</p>
+        </article>
+        <article class="ficha p-reyes">
+          <h4>Los tres Reyes Magos</h4>
+          <p>Ya están en el portal cuando se abre el Acto 10.</p>
+          <p class="meta">Sin diálogo · Acto 10</p>
+        </article>
+      </div>
+      <p class="mencionados">Se mencionan, pero no salen a escena: Don Porfirio, su capataz, Don Valente, Don Atilano y el del ejido.</p>
+    </section>
+
+    <section id="acto-1" class="acto">
+      <h2><span>Acto 1</span> La anunciación</h2>
+      <p class="acotacion"><span class="acot">(María duerme recostada, se oye música celestial de fondo. El ángel aparece en escena)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>María, María. <span class="acot">(María despierta y se sorprende, se arrodilla)</span> Hija de Sión, llénate de alegría, pues el Dios del cielo y de la tierra está en ti.</p></div></div>
+      <div class="linea p-maria"><div class="quien">María</div><div class="dice"><p><span class="acot">(Admirada y con temor)</span> Mi alma se alegra en mi Dios, pero no entiendo qué quieres decir y por qué vienes a mí.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Mujer, tú eres la llena de gracia, pues desde siempre Dios te pensó y te hizo para sí, por eso serás bendita entre todas las mujeres por los siglos.</p></div></div>
+      <div class="linea p-maria"><div class="quien">María</div><div class="dice"><p><span class="acot">(Confundida)</span> Pero no entiendo, todo es tan confuso. ¿Por qué Dios se ha fijado en mi pequeñez? ¿Cómo es que desde siempre él pensó en mí?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p><span class="acot">(Toma a María de la mano y la pone de pie, la suelta y le empieza a explicar)</span> María, Dios ha pensado que ha llegado el tiempo perfecto para enviar al Mesías prometido al mundo.</p></div></div>
+      <div class="linea p-maria"><div class="quien">María</div><div class="dice"><p><span class="acot">(Con notable gusto y alegría)</span> ¡Sea bendito el nombre del Señor!, ya es tiempo de que el Mesías venga a librarnos de la opresión de los poderosos, de la explotación de quienes nos dirigen y del miedo por la violencia en el mundo y en nuestra nación. Por fin viene el Señor. Pero <span class="acot">(reflexiva)</span>, ¿qué tiene que ver todo esto conmigo?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Tú, María, eres la mujer que Dios eligió para que seas tú la madre de quien es el Verbo.</p></div></div>
+      <div class="linea p-maria"><div class="quien">María</div><div class="dice"><p><span class="acot">(Asombrada)</span> ¿Cómo es eso posible?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Sábete que dentro de poco concebirás y darás a luz a un niño a quien llamarás Jesús. Él es el Mesías y Redentor del mundo y será el Señor de todo lo creado.</p></div></div>
+      <div class="linea p-maria"><div class="quien">María</div><div class="dice"><p><span class="acot">(Se toca el vientre. Piensa un poco en silencio.)</span> ¿Pero cómo seré yo la Madre del Hijo de Dios si no estoy casada y aún permanezco virgen?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>El Espíritu de Dios se posará en ti; por obra de él quedarás encinta sin perder tu pureza.</p></div></div>
+      <div class="linea p-maria"><div class="quien">María</div><div class="dice"><p><span class="acot">(Mira al cielo y dice en voz alta conmovida)</span> ¡Yo soy la esclava del Señor, hágase en mí según lo que dices! <span class="acot">(Toma una posición de oración)</span></p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p><span class="acot">(Se inclina un poco y adora al vientre de la Virgen)</span></p></div></div>
+      <p class="acotacion"><span class="acot">(Apagan luces. Fin de escena)</span></p>
+    </section>
+    <section id="acto-2" class="acto">
+      <h2><span>Acto 2</span> Los demonios y su plan</h2>
+      <p class="acotacion"><span class="acot">(Se encuentran en una sala de juntas, todos los demonios hablan y discuten, solo Satanás está en silencio, enojado, grita y los calla)</span></p>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Iracundo)</span> ¡Silencio!</p></div></div>
+      <p class="acotacion"><span class="acot">(Todos se callan a una, a excepción de Candela, al estilo del Prof. Jirafales y el Chavo)</span></p>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Y luego a Satanás le apesta el hocico.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Enojado)</span> ¡¿Cómo dices que dijiste?!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Con pena y miedo)</span> Nada, nada, jefe, digo que ya nos pongamos a trabajar.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Con intención de meter cizaña)</span> No cierto, Don Satán, así de compas, yo oí otra cosa, nomás le aviso. Ora, <span class="acot">(pone la mano en el cinto, como sacando un arma)</span> que, si quiere, me la trueno. <span class="acot">(Candela tuerce los ojos)</span></p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Enojado)</span> ¡Ya basta! <span class="acot">(Se pone de pie. Camina con las manos atrás)</span> Como bien saben, el de allá arriba piensa redimir a los asquerosos humanos… ¿Lo entienden?... <span class="acot">(Exaltado)</span> ¡Nos quiere arrebatar las almas que con tanto trabajo hemos pervertido!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Pues <span class="acot">(presumida)</span> ni con tanto trabajo, jefe, en verdad, modestia aparte. Basta que les demos unos pocos millones para eliminar la dignidad de otros humanos.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>No tenga pendiente, patrón. Dejemos que ese Dios baje al mundo, total, contra lo que él dice nosotros nada podemos, así que mejor ni nos estresemos. Yo digo que nos concentremos en la gente nada más y ya que el Satanás del cielo haga y deshaga lo que quiera.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Emocionada)</span> ¡De veras!, el Cochiloco de Temu tiene mucha razón.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Enojado, saca el arma y le apunta mientras camina hacia ella)</span> ¿Cómo me dijiste, mendiga fresa de Irapuato?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Cuando lo tiene cerca, solo lo hace a un lado con la mano y Sulfuroso cae lejos, como si le hubiera dado un supergolpe. Se queda ahí desmayado hasta que le toca hablar)</span> <span class="acot">(Mientras hace a Sulfuroso a un lado)</span> ¡Quítate! Jefe, lo que debemos de hacer es lograr que los humanos se habitúen al placer del pecado. Ya sabe, el gusto de tener más que los demás, no importa si no es necesario, pero que siempre estén los roperos llenos a más no poder.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Se empieza a levantar poco a poco, habla mareado y se tambalea)</span> ¡Fierro!, y otra cosa, patrón. Se supone que lo que lleva a la gente al cielo es la caridad, ¿no? Pues hay que lograr que los corazones se enfríen, que no les importe la necesidad de los demás, que antepongan en sus vidas lo que no necesitan a las necesidades del prójimo.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Emocionado)</span> ¡Espléndido! Un plan diabólicamente perfecto. Ciertamente, contra Dios no puedo hacer nada, pero en los hombres puedo hacer lo que yo quiera y, lo que es peor, ellos solitos son los que me buscan; basta tan solo con darles lo mínimo de placer para que vengan a mí buscándome. Bueno, y ¿cómo lo vamos a hacer?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Pues hay que empezar con quienes dirigen al mundo, con los poderosos, con los influencers y así será más fácil hacer que el mundo entero prefiera nuestros placeres demoniacos a dejarse redimir por Dios.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Ya recuperado)</span> Así mero le hacemos, yo me encargo de hacer que los corazones se enfríen, voy a erradicar la caridad del mundo, será el auge del egoísmo.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Interrumpe a Sulfuroso)</span> ¡Sí, sí, sí, obvio que sí! Si no es mucha molestia, yo me encargo de que esos “santos ejemplos” para la familia y la juventud se vuelvan lo más fans del pecado. Así será más fácil ganarnos las almas de todos.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Sobres, pues! Entonces yo me encargaré de que los jóvenes se dejen pervertir, como dijo mi expresidente, “ténganme pajienjia y confianja”.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Maravilloso! Manos a la obra. Pónganse a chambear, <span class="acot">(con voz amenazante)</span> y cuidado con fracasar, porque ay de ustedes, que Dios los agarre confesados.</p></div></div>
+      <div class="linea p-grupo"><div class="quien"><span class="p-candela">Candela</span> y <span class="p-sulfuroso">Sulfuroso</span></div><div class="dice"><p><span class="acot">(Se asustan y corren)</span></p></div></div>
+      <p class="acotacion"><span class="acot">(Se cierra el telón)</span></p>
+    </section>
+    <section id="acto-3" class="acto">
+      <h2><span>Acto 3</span> Conocemos a los pastores</h2>
+      <p class="acotacion"><span class="acot">(Ambientado en un ranchito)</span></p>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Ándenle, mis hijos, que nos agarra la noche y luego no alcanzamos a ver bien para hacer la oración.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>No se apure, mi padre, ahorita traigo leñita pa hacer lumbrita, sirve que no nos entumimos.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Ándale, pazguato, eres capaz de quemar todo el cerro y luego nos va a traer entre ojos el del ejido, de por sí no nos quiere porque el tarugo de Espiridión dejó ir a las vacas y destrozaron las milpas del hacendado Don Porfirio.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Pos sí, por eso el capataz nos balaceó la vaca. Lo bueno que no le dio, si no, comemos carne todo el año.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Ándale, muchacho atarantado, vete a dispensar con Don Porfirio, ¿que no ves que si no lo tenemos contento pal año próximo no nos da trabajo?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>No, amá, por cierto, pal cuarterón de maíz que nos da a la quincena. Mejor me voy a la hacienda de Don Valente, dicen que ese no es tan negrero y que de vez en cuando les hace una dispensa.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Una qué, tú?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Una dispensa, de esas de las que traen arroz, frijol, habas y una bolsita de Maseca.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Atarantado, tú dices una provesión.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Es lo mesmo.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>No te andes creyendo, hermanito, ansí son todos los patrones al principio pa que uno les vaya a trabajar y entre más se enriquecen más pior nos tratan. Por eso mejor hay que juntar dinerito pa pagarle a Don Atilano y nos cruce para el norte, ya ves que según es coyote.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Ya no se estén diciendo cosas. Mejor acomódense pa ya empezar la oración.</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastorcitos se sientan en media luna y hacen gestos de concentración)</span></p>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Óiganme, <span class="acot">(con una visible turbación)</span> ¿no sienten algo raro en la noche?</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Sí, mijo, cómo no, si se siente raro que ora tú y tu hermano no andan de borrachotes, ya ni la muelan, así han de ser más seguido.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Ora, amá, no nos ande exhibiendo ansí, si mi hermano y yo nomás tomamos en los días que llevan “R”, como martes, miércoles y viernes… Y “sarbado” y “dormingo”.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>No, no, no… yo hablo en serio… esta noche tiene algo de raro. Como si fuera a pasar algo extraordinario, algo nunca antes visto.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Pos solo que Jovita y Joaquina ya nos digan que tienen novio, porque estas mujeres no salen ni en rifa.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Ay, apá, ya le dije que yo no me caso porque todavía ninguno pasa la prueba de calidad.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Pos es que ninguno aguanta tus dramas.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Y yo ya le dije que no me caso porque el mercado está reescaso.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Ya pónganse serios. En verdad, esta noche tiene algo de especial, algo fuera de lo normal va a suceder el día de hoy.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Son puros nervios los tuyos, andas bien no sé cómo, ¿ya ves por qué no te dejo ver películas de horror?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Bueno, ya! A mí se me hace que nomás estás sacándome la vuelta porque no quieres empezar la oración. Ya vamos a empezar, ahora sí…</p></div></div>
+      <p class="acotacion"><span class="acot">(Un momento de silencio, los pastores hacen gestos de concentración)</span></p>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p><span class="acot">(Con voz fuerte pero tranquila y orante)</span> Señor Dios, Padre de todos. Míranos y escucha el clamor de tus pobres.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Envíanos a tu Mesías para que venga a liberar a los cautivos, levantar a los humildes y dar la buena nueva a los más necesitados.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Envíanos al Mesías para que transforme nuestros corazones.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Danos mucha fuerza para poder seguir trabajando sin reprochar y así ayudar a nuestros papás.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Acuérdate de todos los que viven malos tratos.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Y no permitas que nos olvidemos de los más necesitados.</p></div></div>
+      <div class="linea p-grupo"><div class="quien">Todos los pastores</div><div class="dice"><p>Amén.</p></div></div>
+      <p class="acotacion"><span class="acot">(Cierra telón)</span></p>
+    </section>
+    <section id="acto-4" class="acto">
+      <h2><span>Acto 4</span> El plan de los ángeles</h2>
+      <p class="acotacion"><span class="acot">(En el cielo. Entra el Ángel Gabriel con solemnidad. A su lado están Seráfica, una angelita muy “fresa”, y Justicio, un angelito de barrio, buchón y muy seguro de sí mismo.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Seres celestiales, ha llegado la hora.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿La hora de qué, jefe? Porque si es la hora del descanso, yo ya estaba pensando en bajar por un cafecito.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡No, pues qué descanso ni qué nada! Cuando el Patrón manda llamar, uno se reporta. Aquí estamos al tiro.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Seráfica, Justicio, los he llamado porque una gran misión les será encomendada.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Ay, Gabriel, dime que no es otra vez cuidar querubines. La última vez uno me dejó toda la túnica llena de miel.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Y yo todavía traigo pegada una pluma desde entonces. Mire, jefe, quedó de recuerdo <span class="acot">(Saca una pluma blanca de alguna parte)</span>.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Silencio!</p></div></div>
+      <p class="acotacion"><span class="acot">(Los dos se enderezan inmediatamente.)</span></p>
+      <div class="linea p-grupo"><div class="quien"><span class="p-serafica">Seráfica</span> y <span class="p-justicio">Justicio</span></div><div class="dice"><p>Sí, jefe.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Dios ha escuchado las oraciones de los pastores.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Las de los pastores de la hacienda de Don Porfirio?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Las mismas… <span class="acot">(Se queda pensando)</span> Óyeme, óyeme, ¿cómo es que conoces a Don Porfirio?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Es que llegó un comunicado de que le compró aquí en el cielo un terrenito a su mamá, con eso de las misas gregorianas.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p><span class="acot">(Visiblemente enojado)</span> Ya les dije que eso no… ah, luego hablamos de eso, ahora tenemos que hablar de las plegarias de los pastores.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Los pastores que llevan tanto tiempo pidiendo que llegue el Mesías?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Así es. Han clamado por un libertador. Han pedido esperanza para su pueblo, justicia para los oprimidos y libertad para quienes sufren.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues ya era hora, jefe. Porque esos pobres pastores están más fregados que yo después de pagar mis deudas que me quedaron cuando saqué mi Itálica de la Coppel.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio! Un poco de dignidad celestial.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Qué? ¡También los ángeles tenemos gastos! Me voy a mover en la nube de Gokú, ¿o qué?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>El Padre ha escuchado su oración. El Mesías ha sido enviado.</p></div></div>
+      <p class="acotacion"><span class="acot">(Seráfica y Justicio se miran sorprendidos.)</span></p>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿De verdad?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Sí. Y la salvación ha comenzado.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Eso sí está pesado, jefe! ¡Póngame donde haya que ponerse!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y ya nació?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Todavía no. Pero Dios ya ha preparado el camino. Hace poco fui enviado a Nazaret.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿A ver a la Virgen María?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Así es. Le anuncié que ha sido escogida para ser la Madre del Hijo de Dios.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Ay, qué bonito…</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Entonces el mero mero ya se está moviendo.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Y ahora ha llegado el momento de preparar a los pastores.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Nosotros vamos a anunciarles?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>No, a ellos les voy a dar la anunciación yo.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Entonces qué hacemos?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Los pastores deberán llegar hasta Belén para adorar al Niño.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y cuál es el problema?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Que no llegarán fácilmente.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ah! ¿Por qué, hay baches?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>No.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Lobos?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>No.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Aduana?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡No, Justicio!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Entonces… ¿qué los va a detener?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>La tentación.</p></div></div>
+      <p class="acotacion"><span class="acot">(Seráfica cambia su expresión. Justicio deja de bromear.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>El enemigo intentará desviarlos. Les hará creer que no vale la pena caminar. Les ofrecerá comodidad, riquezas, poder y falsas promesas. Intentará sembrar en ellos miedo, cansancio y desesperanza.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Entonces no nomás vamos a cuidar que no se pierdan en el camino.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Exactamente. Debemos cuidar que no pierdan el camino de su corazón.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y nosotros qué tenemos que hacer?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Seráfica y Justicio, ustedes estarán encargados de hacerles ver que su única meta es llegar a ver al Niño, a pesar de las dificultades.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Ay, claro!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Cuente con eso, jefecito, pues ya estuvo. A ver quién se atreve a meterse con mis pastores.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Qué pasó, morra?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>No son “tus” pastores.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Bueno, nuestros pastores. Pero si alguien se mete con ellos, aquí está su ángel de confianza.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Ay, qué protector saliste.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues uno será buchón, pero tiene corazón, ¿qué no?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Recuerden: no lucharán con violencia. Su misión será conducirlos hacia la verdad, fortalecerlos en la fe y ayudarlos a mantenerse firmes.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Entendido, jefe. Aquí no venimos a hacer pleito. Venimos a cuidar a la gente y a poner en su lugar a la tentación.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Eso sonó bastante bien.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ya te dije que traigo talento.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Entonces debemos acompañarlos hasta Belén.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Sí. Y cuando lleguen, comprenderán que Dios no se ha olvidado de ellos.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Porque el libertador que esperaban…</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>…no llegará con ejército ni riquezas…</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Sino como un niño.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Qué bonito.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Eso sí no me lo esperaba, jefe.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>El poder de Dios no siempre se manifiesta como los hombres esperan.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Entonces, jefe, ¿cuándo salimos?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Ahora.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Ahora mismo?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Ahora mismo.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Pero ni siquiera me dio tiempo de arreglarme las alas.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Pues vámonos así! Total, vamos en misión celestial, no en pasarela.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Qué poco glamur!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ándale, angelita! ¡La misión es la misión!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Seráfica! ¡Justicio!</p></div></div>
+      <p class="acotacion"><span class="acot">(Ambos se ponen firmes.)</span></p>
+      <div class="linea p-grupo"><div class="quien"><span class="p-serafica">Seráfica</span> y <span class="p-justicio">Justicio</span></div><div class="dice"><p>¡A sus órdenes, jefe!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Vayan y protejan a los pastores. Que ninguna tentación les impida llegar hasta Belén.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Queda claro, jefe! ¡Nos ponemos al tiro!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Los llevaremos hasta el Niño!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Y recuerden: no son ustedes quienes salvarán a los pastores, sino Dios.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Nosotros nomás hacemos el jale, jefe.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Exactamente.</p></div></div>
+      <p class="acotacion"><span class="acot">(Seráfica y Justicio salen apresuradamente.)</span></p>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ándale, fresa, que se nos van los pastores!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No me digas fresa, Justicio!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Pues apúrate, angelita!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Voy, voy! ¡Pero no me empujes las alas!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Arre, pues!</p></div></div>
+      <p class="acotacion"><span class="acot">(El Ángel Gabriel los observa mientras se alejan.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Que la esperanza los guíe… y que ninguna tentación los aparte del camino.</p></div></div>
+      <p class="acotacion"><span class="acot">(Cierra telón.)</span></p>
+    </section>
+    <section id="acto-5" class="acto">
+      <h2><span>Acto 5</span> La anunciación a los pastores</h2>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Saben algo, pastorcitos? Cada noche me pregunto: “Dios mío, ¿por qué trabajo tanto y sigo igual de pobre?”</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Y ya encontraste la respuesta?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Cuál?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Que trabajo mucho... y Don Porfirio trabaja mucho en quedarse con lo mío.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Ah, pos ese sí es trabajador!</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¡Y muy eficiente! En cuanto ve una cosecha, desaparece.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Ya dejen de hablar de ese hombre, que hasta dormida me da coraje!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Hablando en serio... ¿hasta cuándo vamos a vivir así?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Dicen que hasta que venga el Mesías.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y cómo sabes que va a venir?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Pos porque eso dicen.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y quién lo dijo?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Pues... la gente.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y qué gente?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¡Pos la gente que sabe!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Muy buena fuente de información, Tarsicio.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Y qué va a hacer ese Mesías?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Liberar al pueblo.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Y nosotros qué vamos a hacer mientras él trabaja?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Pues descansar.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Ah, qué bonito! El Mesías trabajando y nosotros sentados.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Yo puedo ayudarle.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Tú?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿En qué?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>En descansar.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Ay, hijo! Para eso sí eres bueno.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Silencio! Miren el cielo.</p></div></div>
+      <p class="acotacion"><span class="acot">(Una luz ilumina la escena. Aparece el ÁNGEL GABRIEL. Todos los pastores se levantan asustados.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡No teman!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Yo no temo! <span class="acot">(Abraza a Doña Nieves.)</span></p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Suéltame, viejo bruto! ¡Me estás apretando!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Es que estoy protegiéndote!</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Pues protégete tú, que eres el que está temblando!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Pastores, traigo una gran noticia: ha nacido el Salvador, el Mesías, el Señor.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿¡El Mesías!?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Ya decía yo que tanta pobreza no podía durar para siempre!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Ha venido a traer esperanza y liberación.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Y dónde está?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>En Belén.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿Belén?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y está lejos?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¡Pues claro! Si estuviera cerca ya habríamos llegado.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Yo nomás preguntaba.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Pos yo nomás respondía.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Y cómo sabremos que es el verdadero Mesías?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Lo encontrarán acostado en un pesebre, humilde y pobre.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿En un pesebre?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Pues ya me cayó bien. Al menos no nació en la hacienda de Don Porfirio.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Eso sí!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Pero si viene a liberar a los pobres... ¿mañana ya no habrá explotación?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>El Mesías inaugura un Reino donde los últimos son levantados y la dignidad de cada persona es respetada.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Entonces sí viene a cambiar las cosas.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Sí. Pero ustedes también deben cambiar.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Nosotros?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>La fe no es quedarse con los brazos cruzados.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Ah, caray! Yo pensé que eso de la fe era gratis.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Gratis sí. Fácil, no.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Ahí está el problema!</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Si queremos que las cosas cambien, tenemos que empezar nosotros.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Y qué podemos hacer?</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Si uno tiene hambre, compartimos el pan. Si alguien sufre una injusticia, no lo dejamos solo.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Y si nos pagan mal...</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¡Nos quejamos juntos!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Porque si se queja uno solo, Don Porfirio lo manda a trabajar doble.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Y si nos quejamos todos, nos manda a trabajar triple!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Pues entonces hay que llevar calculadora!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Ya en serio. Si estamos unidos, podemos defendernos mejor.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Porque separados nos hacen lo que quieren.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Pero juntos podemos defender nuestros derechos.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Y también tenemos que dejar de pensar que ser pobres significa valer menos.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Eso! Yo soy pobre, pero no soy menos hombre.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Ni yo menos mujer.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Y yo no soy menos inteligente.</p></div></div>
+      <p class="acotacion"><span class="acot">(Todos lo miran.)</span></p>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Bueno...</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Qué?</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Eso todavía lo estamos investigando.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Recuerden: la dignidad no depende del dinero.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Eso sí lo entendí!</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Entonces nuestra fe tiene que…</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Tener pies!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Manos!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Y voz!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Y buenos zapatos! Porque Belén no queda precisamente aquí a la vuelta.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Ya vas a empezar con tus quejas!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>No son quejas, mujer. Son preocupaciones espirituales.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Y qué hay de la paz que trae el Mesías? ¿Significa que ya nadie va a pelear?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>La verdadera paz necesita justicia. Donde hay hambre, humillación y opresión, el silencio no siempre es paz.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Entonces queremos una paz donde podamos vivir dignamente.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Donde el trabajo no nos gaste tanto, ya mis manos están bien callosas.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Donde nadie tenga que aguantar vara tan pesada.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Y donde todos podamos mirarnos como hermanos.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Entonces vayan a Belén. Allí encontrarán al Niño.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Pues vámonos!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡A conocer al Mesías!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Espérense! ¿Cómo vamos a llegar a la casa del Mesías sin un regalito?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y qué le vamos a llevar?</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Creo que todavía hay un poquito de requesón en la alacena.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>También quedan unos panes en la mesa.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¡Pues eso le llevamos!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Y si el Oxxo está abierto, le compramos un Gansito!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡¿Al Niño Dios le vas a llevar un Gansito?!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Pues sí! ¿O qué? ¿Quieres que llegue con las manos vacías?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Yo creo que al Niño le va a gustar.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>A ti te gusta cualquier cosa que tenga chocolate.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Por eso mismo! Tengo buen gusto.</p></div></div>
+      <p class="acotacion"><span class="acot">(Tarsicio saca un costal.)</span></p>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>A ver… aquí echen las cosas.</p></div></div>
+      <p class="acotacion"><span class="acot">(Doña Nieves y Joaquina van rápidamente por los obsequios y los colocan en el costal.)</span></p>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Ya nomás falta ver quién va a ser el inteligente que cargue el costal todo el camino.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Qué? ¿Alguien inteligente? <span class="acot">(Le arrebata el costal.)</span> ¡Yo mero!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Mira nomás! Cuando se trata de trabajar, sí aparece la inteligencia.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Cállate y camina!</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Ya salió. Pos vámonos yendo.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Anden, mis hijos! ¡El Mesías nos espera!</p></div></div>
+      <div class="linea p-grupo"><div class="quien">Todos los pastores</div><div class="dice"><p>¡Sí! ¡Vamos!</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastores salen de escena caminando alegremente.)</span></p>
+      <p class="acotacion"><span class="acot">(Ángel Gabriel permanece un momento en escena y se dirige al público.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Dios escucha el clamor de su pueblo. Pero también lo llama a levantarse, caminar y vivir como hermanos. La esperanza también se construye.</p></div></div>
+      <p class="acotacion"><span class="acot">(Cierra el telón.)</span></p>
+    </section>
+    <section id="acto-6" class="acto">
+      <h2><span>Acto 6</span> Los pastores en camino a Belén</h2>
+      <p class="acotacion"><span class="acot">(Los pastores aparecen en camino muy cansados)</span></p>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Ay, hijos míos, ya me duelen los huesos que no sabía que tenía nomás de puro caminar.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>No te quejes, viejo flojo, tenemos que llegar a Belén. El angelito dijo que ahí está el Mesías.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Pero cuánto falta, amá?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Pos quién sabe, pero desde que salimos no dejas de preguntar lo mesmo.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Pos uno también tiene derecho a saber cuánto falta pa descansar un rato.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Cuál descansar? Si falta poco para que te traiga cargado.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Pues cárgame! Pero luego no estés diciendo que nunca te pedí nada.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Ay, sí! Como si pesaras poquito.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡No peso mucho!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Pues el costal que llevas parece que pesa más que tú!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Porque está lleno!</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¡Ya dejen de pelear!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Tú cállate!</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿Yo por qué?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Porque sí!</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¡Ah, bueno, me callo pues!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Ay, ya empezaron! Caminamos cinco minutos y ustedes se pelean seis.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Pues ella empezó!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Mentira! Él empezó desde que nació.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡¿Cómo voy a empezar desde que nací?!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Pues contigo nunca se sabe!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Ya, ya, ya! ¡Parecen gallinas peleándose por un grano de maíz!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Yo no soy gallina!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Pues deja de cacarear y camina.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Ja, ja! Muy chistoso, apá.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Gracias, hijo. A mi edad uno ya tiene experiencia en decir tonterías.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Pues parece que experiencia les sobra a todos!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Mamá, yo ya no puedo más.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¿Qué te duele?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Todo.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¿Los pies?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¿Las piernas?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>También.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¿La espalda?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>También.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¿Entonces qué no te duele?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Mi orgullo.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Ese sí lo traes bien cargado!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Cállate, burro!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡¿Burro yo?!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡No insultes a los burros! Ellos sí trabajan.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Ya dejen de estar peleando! Y sigamos, porque, si no, menos vamos a llegar.</p></div></div>
+      <p class="acotacion"><span class="acot">(Don Cleto los arrea con el bastón y los pastorcitos salen)</span></p>
+    </section>
+    <section id="acto-7" class="acto">
+      <h2><span>Acto 7</span> Los demonios engañan a los pastores</h2>
+      <p class="acotacion"><span class="acot">(Aparecen CANDELA y SULFUROSO escondidos detrás de unas rocas o arbustos. Están esperando a los pastores.)</span></p>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Shhh... ahí vienen esos pastores.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Eiii! Ya los divisé. Déjame marcarles el alto.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Lo detiene.)</span> ¡Eit, espera! ¿No puedes hacer algo sin sacar el arma?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¿Y entonces para qué la cargo, mija? ¿De adorno?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Ay, Sulfuroso... de verdad, qué básico eres.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Tú déjamelo a mí. Yo sé cómo hacer las cosas.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Nada más no los vayas a matar del susto.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Pos que se asusten! El miedo es gratis.</p></div></div>
+      <p class="acotacion"><span class="acot">(Sulfuroso sale del escondite y se coloca en medio del camino. Los pastores entran a escena cansados.)</span></p>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Alto ahí!</p></div></div>
+      <p class="acotacion"><span class="acot">(Saca un arma. Los pastores se asustan.)</span></p>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Quietecitos todos! ¡Aquí puro Cártel de los Fariseos!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Ya nos salieron los soldados con tenis!</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Cleto, cállate, que nos van a disparar!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Tranquilos, tranquilos! Nadie se me acelere. Aquí nomás estamos platicando.</p></div></div>
+      <p class="acotacion"><span class="acot">(Candela sale de su escondite y le da un sape a Sulfuroso.)</span></p>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>¡Guarda eso, animal!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Ay!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>¿No ves que así no se trata a la gente?</p></div></div>
+      <p class="acotacion"><span class="acot">(Se dirige a los pastores con una voz exageradamente dulce.)</span></p>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Ustedes disculpen a mi compañero. A veces es... un poquito intenso.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¿Poquito?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Sí. Poquito.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Ah, bueno!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(A los pastores.)</span> Buenas noches, dignísimos amigos. Qué gusto encontrarlos por este camino tan... rústico.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Rústico?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Sí, querida. Muy... campirano.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Pos nosotros le decimos camino de terracería.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Bueno, eso. Pero díganme, ¿hacia dónde caminan tan de noche, tan rápido y con esos zapatos tan... humildes?</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Vamos camino a Belén.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Vamos a conocer a un niño recién nacido. Dicen que es el que viene a salvarnos de la crueldad de los poderosos y a traernos la paz de Dios.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Sí! Y vamos a llevarle unos regalitos que trae el burro en el costal. <span class="acot">(Mirando a Espiridión)</span></p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Eh! Yo no soy burro.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Yo no dije tu nombre.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Pero lo dijiste mirando para acá.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Ya, hijos. Vamos a buscar el pobre pesebre donde ha nacido el Señor.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Ay, qué lindo... <span class="acot">(Hace una expresión exagerada de ternura.)</span> Aunque, sinceramente, no entiendo por qué quieren ir tan lejos a ver a un niñito.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Oiga, más respeto. No le diga “niñito” así nomás. Es el Mesías que tanto tiempo hemos esperado.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Con gesto de disgusto.)</span> Ay, Dios mío... digo, Satán mío.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Qué?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Nada, querida. Es que no entiendo cómo pueden andar así.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿¡Así cómo!?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Pues... así. <span class="acot">(Los mira de arriba abajo.)</span> Con esa ropa, esos zapatos, ese costal...</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Pues somos pastores!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Sí, ya me di cuenta.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡Pues entonces no sé qué quiere! <span class="acot">(Joaquina intenta acercarse a Candela, pero Doña Nieves y Jovita la detienen.)</span></p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Ay, qué agresividad. Por eso luego una no puede convivir con cierta gente.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Jala a Candela del cabello.)</span> ¡Ahora la regaste tú otra vez!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>¡Suéltame!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Tú cállate tantito. <span class="acot">(Se dirige a los pastores.)</span> Miren, amigos... lo que mi compañera quiere decir es que no necesitan ir hasta Belén para conseguir lo que quieren.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Ah, ¿no?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>No.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y entonces qué hacemos?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Ayúdense ustedes mismos.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Cómo?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Yo les puedo enseñar.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p><span class="acot">(Apartando a Cleto.)</span> Oye, viejito...</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Qué pasó?</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Ese hombre no me da nada de confianza.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>A mí tampoco. <span class="acot">(Mirando a Sulfuroso)</span></p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Entonces, ¿por qué lo estás mirando tanto?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Porque trae un reloj que parece valer más que toda nuestra cosecha.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Cleto!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Qué? Uno también sabe apreciar las cosas bonitas.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Interviniendo.)</span> A ver, a ver... ¿sí les interesa o no?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Pues...</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Porque yo no obligo a nadie. Cada quien decide cómo quiere vivir.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Ay, qué profundo te escuchaste.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Pos sí!</p></div></div>
+      <p class="acotacion"><span class="acot">(Sulfuroso y Candela muestran cadenas, esclavas y medallas exageradamente grandes.)</span></p>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Santa madre!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Eso pesa más que mi costal!</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Dónde firmo?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡No, hombre! Aquí no hay que firmar nada. <span class="acot">(Hace una pausa y se pone serio.)</span> Pero eso sí... una vez que entras, ya no hay vuelta atrás.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿Y qué tenemos que hacer?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Primero dejar de pensar como gente pobre.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y cómo piensa la gente rica?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Como yo.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Ah, entonces estamos peor.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Miren! Ustedes están cansados de trabajar para otros, ¿no?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¿Cansados de que se burlen de ustedes?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¿Cansados de que los poderosos tengan todo mientras ustedes no tienen nada?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Hasta ahí sí estamos de acuerdo!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Entonces yo les propongo algo sencillo. <span class="acot">(Saca una pistola y la muestra.)</span></p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Poder.</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastores retroceden asustados.)</span></p>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>¡Ay, caracoles! ¿Qué es ese instrumento del diablo?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Tranquilos. No se me espanten.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿Eso es lo que usted llama poder?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Esto es una herramienta.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Una herramienta?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Pues yo siempre había usado azadón.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Eso es porque sigues pensando como pobre.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Pos sí! ¿Y qué? ¡El azadón nunca me ha pedido que le dé una parte de mi sueldo!</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Además, ¿qué clase de trabajo es ese?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>El trabajo de los que mandan.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿Y a quién mandamos?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>A todos.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿Y quién nos manda a nosotros?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Pues… siempre tiene que haber alguien arriba.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Ah! O sea que seguimos siendo mandados, nomás que con pistola.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡No, no, no! Ustedes tendrían dinero. Camionetas. Ropa fina. Cadenas. Celulares.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Celular también?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡De los más caros!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y tiene señal?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Hasta en el cerro y sin registrarlo!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Entonces sí me interesa!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Espiridión!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Qué? Nomás estaba preguntando.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Imagínense: camionetas, dinero, mujeres, respeto...</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Y ya no tendrían que mezclarse con gente cualquiera.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Cómo que con gente cualquiera?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Ay, no se ofendan. Me refiero a que podrían mejorar su círculo social.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Y eso qué significa?</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Que podrían dejar de juntarse con gente... como ustedes.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡¿Cómo que como nosotros?!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Ay, tranquila. No te alteres.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Ya, Candela! Cállate. <span class="acot">(Se dirige a los pastores.)</span> Imagínense que mañana nadie vuelva a burlarse de ustedes.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Y cómo lograríamos eso?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Haciendo que todos les tengan miedo.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Nosotros no queremos que nos tengan miedo.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Entonces, ¿qué quieren?</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Que nos respeten.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Pues el miedo es una forma de respeto!</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>No. El miedo no es respeto.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¿Ah, no?</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>No. Yo quiero que mis hijos puedan caminar por la calle sin que nadie los amenace.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Yo quiero trabajar sin que me exploten.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Yo quiero que se respete a quien trabaja.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Y que nadie tenga que agachar la cabeza por ser pobre.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Eso suena muy bonito! Pero mientras ustedes esperan al Mesías, otros se están quedando con todo.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y usted qué propone?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Que ustedes sean los que se queden con todo.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¿Y cómo?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Dejando de ser los que obedecen. <span class="acot">(Sulfuroso coloca nuevamente el arma frente a ellos.)</span> Con esto nadie vuelve a decirles qué hacer.</p></div></div>
+      <p class="acotacion"><span class="acot">(Silencio.)</span></p>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Se acabaron las burlas.</p></div></div>
+      <p class="acotacion"><span class="acot">(Pausa.)</span></p>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Se acabaron los abusos.</p></div></div>
+      <p class="acotacion"><span class="acot">(Pausa.)</span></p>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Se acabó ser pobres.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Y, por fin, podrían vestirse como personas decentes.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Ay, tú, sí que no ayudas!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Yo solamente digo la verdad.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Entonces, ¿qué dicen? ¿Van a seguir esperando que alguien venga a salvarlos? ¿O van a salvarse ustedes mismos?</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastores se miran entre ellos en silencio. Al final todos asienten y Don Cleto da un paso al frente, estira la mano para tomar el arma, pero antes de que la tome, la escena se corta)</span></p>
+      <p class="acotacion"><span class="acot">(Cierra telón)</span></p>
+    </section>
+    <section id="acto-8" class="acto">
+      <h2><span>Acto 8</span> Los ángeles se encaminan a salvar a los pastores</h2>
+      <p class="acotacion"><span class="acot">(Se abre el telón. Entra Justicio corriendo, seguido de Seráfica.)</span></p>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Ay, no puede ser! ¡Ya es demasiado tarde! ¡Ya no llegamos a defender a los pastores!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ya ni me digas, morra! Pero también tú tuviste la culpa. Te tardaste lo que llevamos de pastorela nomás maquillándote y peinándote.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p><span class="acot">(Apenada.)</span> Es que para derrotar al demonio una tiene que imponer. Hay que llegar presentable, ¿no?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues sí, pero tampoco vas a una pasarela. Vamos a salvar pastores.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Uno nunca sabe dónde puede encontrar al enemigo.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ah, pues si aparece Satanás, que se forme! Aquí traemos con qué.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Ay, qué miedo contigo.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Miedo? ¡Si yo soy puro amor!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Sí, claro...</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Bueno... amor con carácter.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y ahora qué hacemos?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues primero hay que avisarle al Patrón. <span class="acot">(Saca su celular.)</span></p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Vas a usar el celular?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues claro. ¿Qué quieres? ¿Mandarle una paloma mensajera?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Justicio, somos ángeles.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Precisamente. Hay que modernizarse. <span class="acot">(Marca.)</span> ¿Bueno? ¿Patrón? ¿Qué pasó, jefe? Tenemos un pequeño inconveniente...</p></div></div>
+      <p class="acotacion"><span class="acot">(Seráfica lo mira preocupada.)</span></p>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Sí... se nos fueron los pastores. Sí, Patrón. Se nos pelaron.</p></div></div>
+      <p class="acotacion"><span class="acot">(Pausa.)</span></p>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>No, Patrón, no fue exactamente culpa mía...</p></div></div>
+      <p class="acotacion"><span class="acot">(Seráfica lo mira.)</span></p>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Bueno, también de Seráfica.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡¿Qué?!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Sí, Patrón... sí... entendido... sí, Patrón... de su parte. <span class="acot">(Cuelga.)</span></p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Qué dijo?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿A poco el Patrón conoce a nuestra mamá?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Que vayamos por ellos, pues.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y qué más?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Que nos apuremos.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y qué más?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Que ya dejemos de estar preguntando y nos pongamos a trabajar.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Eso último seguramente te lo inventaste!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Bueno... pero sonó bonito.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ya, ya. Vámonos.</p></div></div>
+      <p class="acotacion"><span class="acot">(Da unos pasos y se detiene.)</span></p>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Qué pasó?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Una pregunta.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Cuál?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Para dónde es Belén?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p><span class="acot">(No dice nada, lo mira entre preocupada y decepcionada)</span></p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Qué?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Tú dijiste que fuéramos por ellos!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Pues sí! Una cosa es tener prisa y otra muy distinta saber para dónde jalar.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Ay, Justicio! ¡Eres un ángel, no un turista!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Pues por eso! Nosotros volamos. ¿Cómo se supone que voy a saber qué calle agarrar?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Tenemos que seguir a los pastores.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Y tú viste para dónde se fueron?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>No.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Viste alguna señal?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>No.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Preguntaste?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Tampoco.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Entonces estamos igual que al principio.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No! Al principio sabíamos dónde estaban.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ah, bueno... entonces ahorita estamos peor.</p></div></div>
+      <p class="acotacion"><span class="acot">(Seráfica se lleva las manos a la cabeza.)</span></p>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Tenemos que pensar. ¿Qué harían los ángeles en una situación como esta?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues buscar en el GPS.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No existe el GPS celestial!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Cómo que no? Con lo que le cobran a uno por el internet debería venir incluido. <span class="acot">(Saca su celular.)</span></p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Qué haces?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Voy a buscar en Google Maps.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio, somos ángeles! ¡Tenemos una misión divina!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Sí, pero la misión divina no trae ubicación en tiempo real. <span class="acot">(Mira el celular.)</span> A ver... “Belén”.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Hay un montón!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Cómo que un montón?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Belén Norte, Belén Sur...! ¡Mira, hasta me aparece una que ni sé dónde queda!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Pues busca el Belén de los pastores!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Y cómo quieres que sepa cuál es?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Porque somos ángeles!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ah, bueno! Entonces pregúntale a Dios.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No te burles!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>No me burlo, nomás digo que tenemos contacto directo con el mero Patrón.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Mejor ya vámonos.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Arre. <span class="acot">(Dan unos pasos.)</span> Espérate.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Ahora qué?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Creo que ya nos perdimos.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡¿Cómo nos vamos a perder si apenas llevamos tres pasos?!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Es que yo me oriento por puntos de referencia.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y qué referencia tienes?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>El templo de la Cruz.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Estamos prácticamente junto al templo de la Cruz!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Por eso! Ya tenemos una referencia.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Mira, para que veas que sí conozco Querétaro: de aquí podemos agarrar por la calle Independencia, bajar hacia el centro y llegar hasta la zona de la Plaza de Armas.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Sí, pero los pastores no vienen haciendo turismo.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues si los encontramos por ahí, mínimo ya conocieron el centro histórico.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Tenemos que buscar una ruta más fácil.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues podemos ir hacia el Chucho el Roto.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Al restaurante Chucho el Roto?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ese mero! Si los pastores andan buscando a un tal Jesús, pues…</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No seas payaso!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues yo nomás decía.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p><span class="acot">(Saca su celular)</span> Yo me encargo mejor.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ah, sí... se me olvidaba que eres la sabelotodo.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Claro. Yo sí estudio. También deberías estudiar tú.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Yo también estudio. <span class="acot">(Se dirige al público.)</span> Y estudio en el famosísimo y prestigiado Colegio Universitario de la Santa Cruz.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Ya basta!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Uy, qué genio!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Alguien tiene que pensar en este equipo!</p></div></div>
+      <p class="acotacion"><span class="acot">(Justicio vuelve a mirar el celular.)</span></p>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Espérate! Aquí dice que estamos cerca de la Alameda.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y qué haremos en la Alameda?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues buscar pastores.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡¿En la Alameda?!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Sí. Hay árboles, bancas, gente...</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No estamos buscando palomas, estamos buscando pastores!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Bueno, pues unos pastores también pueden sentarse en una banca.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Ay, Dios mío...</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Mira, mejor vamos…</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿A la Victoria?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Sí. De ahí podemos agarrar y revisar por las calles de alrededor.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y qué vamos a decir?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Vamos con cada persona que veamos y le decimos: “Buenas tardes, ¿no han visto pasar a seis pastores, uno cargando un costal y otro que parece que no sabe dónde está?”.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No están perdidos!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Nosotros sí.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Eso sí.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Espérate...</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Qué?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ya entendí.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Qué entendiste?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Si queremos encontrar a los pastores...</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Ajá...</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Tenemos que pensar como pastores.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y cómo piensan los pastores?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pues acuérdate de las pastorelas de los años anteriores, ¿cómo le hacen para ir a Belén?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p><span class="acot">(No dice nada, se queda pensando)</span></p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Siguen una estrella!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Ah, sí! ¡Exactamente!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Entonces no necesitamos calles, ni mapas, ni GPS.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Por fin dijiste algo inteligente!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Nomás no te emociones.</p></div></div>
+      <p class="acotacion"><span class="acot">(Ambos miran hacia arriba.)</span></p>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Mira, allá está una estrella.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Esa es!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Segura?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Sí!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Completamente segura?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Sí, Justicio!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Y si es una antena?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ya, ya! ¡Vámonos! <span class="acot">(Justicio se acomoda la ropa, guarda el celular y adopta una pose exageradamente segura.)</span> ¡Ánimo, morra! Que aquí no venimos a perder el tiempo. Vamos a encontrar a nuestros pastores.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Pues corre!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Arre, pues!</p></div></div>
+      <p class="acotacion"><span class="acot">(Ambos salen corriendo, siguiendo la dirección de la estrella.)</span></p>
+      <p class="acotacion"><span class="acot">(Desde fuera del escenario.)</span></p>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Y esta vez tú no te pierdas!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Yo nunca me pierdo!... ¡¿Por dónde era?!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio!</p></div></div>
+      <p class="acotacion"><span class="acot">(Se cierra el telón.)</span></p>
+    </section>
+    <section id="acto-9" class="acto">
+      <h2><span>Acto 9</span> Los ángeles salvan a los pastores</h2>
+      <p class="acotacion"><span class="acot">(Continúa la escena, los pastores aparecen con cadenas, relojes y pulseras, aventando billetes al cielo, corridos de fondo, bebiendo alcohol mientras los pastores y los diablos se están divirtiendo, y están bramando de alegría un poco ebrios)</span></p>
+      <p class="acotacion"><span class="acot">(Cada pastor trae un arma)</span></p>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Qué es esto!</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastores voltean asustados.)</span></p>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Qué son todas estas porquerías!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Ay, qué susto! Yo pensé que era el patrón.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Pues casi! Pero este viene del cielo.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><mark>¡Ustedes otra vez!</mark></p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p><mark>¡Sí, nosotros otra vez!</mark> Y esta vez llegamos a tiempo.</p></div></div>
+      <aside class="nota" id="pend-3"><strong>⚠ Posible error</strong> Dicen “otra vez”, pero ángeles y demonios no se habían encontrado antes en escena.</aside>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Bueno… técnicamente llegamos un poquito tarde.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡No se metan! Los pastores ya tomaron su decisión.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡No! Los pastores no saben lo que han hecho.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Les estoy dando una oportunidad de salir de la pobreza!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Con todo esto?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Con poder!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ah, bueno. Yo pensé que era solo con unas pistolas y joyitas.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Justicio…!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ya, ya. Me callo.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Escúchenme, pastores. Nosotros sabemos que están cansados de sufrir. Sabemos que han sido humillados, explotados y tratados como si valieran menos.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Entonces dinos, ¿qué hacemos?</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Seguir adelante.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Y seguir siendo pobres?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>No necesariamente. Ser humilde no significa ser conformista.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Entonces qué nos están ofreciendo ustedes?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Una vida en la que lo que consigan sea fruto de su trabajo, no del miedo que provoquen.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y también hay camioneta?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Si trabajas y te alcanza para una, sí.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Ah…</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Pero sin esconder nada debajo de los asientos.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Bueno, eso ya es más complicado.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Este condenado les promete dinero rápido, respeto basado en el miedo y una vida llena de lujos.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Sí.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Pero pregúntense algo: ¿cuánto dura una vida construida sobre el miedo?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Poco.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Y cuánto dura el respeto que se consigue obligando a los demás?</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Hasta que alguien tenga más miedo que uno.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Exactamente!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Bah! ¡No les hagan caso! ¡Con dinero pueden comprarlo todo!</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿También la tranquilidad?</p></div></div>
+      <p class="acotacion"><span class="acot">(Sulfuroso se queda callado.)</span></p>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿También la confianza de los demás?</p></div></div>
+      <p class="acotacion"><span class="acot">(Silencio.)</span></p>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿También una conciencia tranquila?</p></div></div>
+      <p class="acotacion"><span class="acot">(Sulfuroso se molesta.)</span></p>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Ya cállense!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Uy! Parece que le tocaron una fibra sensible.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Ustedes tienen una decisión que tomar. Pueden buscar el camino fácil, aunque termine destruyéndolos, o pueden seguir caminando hacia Belén.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y en Belén qué hay?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>El Mesías.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y da trabajo?</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¡Espiridión!</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Pues hay que preguntar!</p></div></div>
+      <p class="acotacion"><span class="acot">(De pronto se escucha una música más fuerte. Entra Satanás.)</span></p>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Ya fue suficiente!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Patrón!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡¿Cómo es posible que unos simples ángeles estén echando a perder todo nuestro trabajo?!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Porque tenemos capacitación.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¡Y vocación!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Bueno, yo sobre todo tengo improvisación.</p></div></div>
+      <p class="acotacion"><span class="acot">(Entra Ángel Gabriel.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Satanás!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Gabriel!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Parece que llegué justo a tiempo.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>No te metas en esto.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Estos pastores han sido engañados. No voy a permitir que los apartes del camino.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¿Y qué vas a hacer?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Te propongo un reto.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¿Un reto?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Una competencia.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Uy! Ya se puso bueno.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¿Qué clase de competencia?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Adivinanzas.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¿Adivinanzas?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>El que gane se queda con la última palabra.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Mejor que una pelea!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Acepto!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>Empiezo yo. A ver si eres tan sabio como dicen.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Adelante.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>A ver, alitas de pollo, ¿qué tiene cuernos, cola y patas, pero no es vaca ni burro, y además es más guapo que tú?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>No sé.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>Pues yo, Satanás.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Uy, pues qué autoestima! En el infierno hasta el espejo debe mentir.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Pues claro, ahí todos mienten!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Cállate!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Ahora yo.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>Pregunta.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¿Qué es desagradable, silencioso, huele a azufre y aparece cuando y donde menos lo quieren?</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>Fácil… un pedo.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡No, genio!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡¿Entonces qué?!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Un diablo corriente.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Oye, respeta a mis subordinados!</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>Pues usted no se queda atrás, jefe.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Adelante, vas tú.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>A ver, emplumado, ¿qué tiene alas, viste de blanco y se pasa todo el día mirando para arriba?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Pues fácil, un ángel!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Incorrecto! ¡Un pollo buscando que le den de comer!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ya se están poniendo serios!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Tú no digas nada.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Mi turno. ¿Qué es algo que empieza finito en noviembre, se vuelve gigante en diciembre y enorme en enero?</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>No sé, ¿el dinero de mi cuenta?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Las cinturas de las señoras con tanto tamal y ponche!</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Tono sarcástico)</span> Jajaja, casi me matas de la risa.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Pues no que muy salsa.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>Pero no para tus tacos.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Pues como veas.</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Pues dime!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¿Pues qué quieres que te diga?</p></div></div>
+      <p class="acotacion"><span class="acot">(El Ángel Gabriel y Satanás se empechan como boxeadores, los pastores se bajan con miedo del escenario quedando enfrente.)</span></p>
+      <p class="acotacion"><span class="acot">(Seráfica y Candela pasan al frente.)</span></p>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p><span class="acot">(Barriendo con la mirada)</span> ¡Qué oso! O sea, si con esa ropa de tianguis se visten en el cielo, pues estoy mejor en el infierno.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Disculpa?, ¿me hablas a mí? Podrá ser muy ropa de tianguis, pero al menos no traigo bien puestos los cuernos.</p></div></div>
+      <div class="linea p-candela"><div class="quien">Candela</div><div class="dice"><p>¿Ah, sí? ¿Estás segura?</p></div></div>
+      <p class="acotacion"><span class="acot">(Candela suelta chispas al suelo y Seráfica le responde con lo mismo)</span></p>
+      <p class="acotacion"><span class="acot">(Justicio y Sulfuroso pasan al frente del escenario)</span></p>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p><span class="acot">(Dirigiéndose al público)</span> ¿Y a este de qué feria o de qué circo lo sacaron?</p><p>Jaja, por cierto, por aquí hay unos de Elektra; me acaban de decir que ya van tres meses que no das tus abonos.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¿Y tú quién eres o a qué te dedicas?</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Alguien con quien no quieres tener problemas, amigo.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Ah, es que desde que te vi te iba a pedir tu autógrafo; pensé que eras Zacarías Tercero de Los Héroes del Norte.</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Qué!</p></div></div>
+      <p class="acotacion"><span class="acot">(Sulfuroso lanza chispas al suelo y Justicio le responde)</span></p>
+      <p class="acotacion"><span class="acot">(Ángel Gabriel y Satanás regresan al frente, se preparan para pelear Ángel Gabriel con su espada y Satanás con su tridente)</span></p>
+      <p class="acotacion"><span class="acot">(Pelean mientras los demonios, ángeles y pastores gritan mientras pelean)</span></p>
+      <p class="acotacion"><span class="acot">(Ángel Gabriel vence a Satanás)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¿Entonces qué salsa pica más?</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Demonios! ¡Nos vamos!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Pero, patrón…</p></div></div>
+      <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡He dicho que nos vamos!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Ándale, Sulfuroso! ¡Ya te llamaron!</p></div></div>
+      <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>¡Esto no se queda así!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Sí, sí… ¡corre antes de que te deje el camión!</p></div></div>
+      <p class="acotacion"><span class="acot">(Los demonios salen furiosos.)</span></p>
+      <p class="acotacion"><span class="acot">(Ángel Gabriel se acerca a los pastores. Cambia el tono: ahora es más solemne.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Pastores, no les voy a decir que el camino será fácil.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Lo sabemos.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Tampoco les voy a prometer riquezas ni una vida sin dificultades.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Entonces, ¿qué nos ofrece el Mesías?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Les ofrece algo que ningún hombre puede comprar: la posibilidad de vivir con dignidad, libertad y esperanza.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Eso vale más que cualquier riqueza.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>El mal muchas veces se presenta disfrazado de éxito. Les promete dinero rápido, poder y reconocimiento. Pero cuando una persona construye su vida haciendo daño a los demás, termina perdiendo aquello que realmente la hace libre.</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>La tranquilidad.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>La tranquilidad, la confianza, la familia, la amistad y, sobre todo, la paz del corazón.</p><p>Ahora, quítense todas esas cosas que traen puestas, esa basura de los demonios.</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastores dejan en el suelo las armas y las joyas)</span></p>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Entonces debemos seguir caminando.</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Sí. No porque Belén sea el camino más fácil, sino porque es el camino que conduce a la esperanza.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¿Y si volvemos a tener miedo?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Caminen juntos.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Y si nos vuelven a humillar?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>No permitan que la injusticia los convierta en injustos.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>¿Y si volvemos a tener hambre?</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Trabajen juntos, ayúdense unos a otros y no pierdan la esperanza.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¿Y si nos perdemos?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Para eso estamos nosotros!</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>Y esta vez sí sabemos por dónde.</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Creo.</p></div></div>
+      <div class="linea p-serafica"><div class="quien">Seráfica</div><div class="dice"><p>¿Cómo que “crees”?</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>¡Pues vamos siguiendo a la estrella!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Entonces, pastores, adelante!</p></div></div>
+      <div class="linea p-grupo"><div class="quien">Todos los pastores</div><div class="dice"><p>¡A Belén!</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastores comienzan a caminar. Espiridión se detiene.)</span></p>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Esperen!</p></div></div>
+      <div class="linea p-grupo"><div class="quien">Todos</div><div class="dice"><p>¿Qué?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Se nos olvidó una cosa.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>¿Qué cosa?</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Las llaves de la camioneta!</p></div></div>
+      <p class="acotacion"><span class="acot">(Todos lo miran.)</span></p>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Es broma!</p></div></div>
+      <p class="acotacion"><span class="acot">(Todos lo persiguen mientras él corre)</span></p>
+      <p class="acotacion"><span class="acot">(Todos salen corriendo hacia Belén)</span></p>
+      <p class="acotacion"><span class="acot">(Cierra telón)</span></p>
+    </section>
+    <section id="acto-10" class="acto">
+      <h2><span>Acto 10</span> Los pastores llegan a adorar al Niño a Belén</h2>
+      <p class="acotacion"><span class="acot">(El telón se abre y se ve a José, María y al Niño junto con los tres Reyes Magos, los ángeles Gabriel, Seráfica y Justicio en el portal. Los pastores van entrando uno por uno, se arrodillan, dicen su línea y adoran al niño)</span></p>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Niño Dios, pequeño y humilde, hoy vengo a tus pies a pedir: que nunca nos falte el valor para trabajar y vivir.</p></div></div>
+      <div class="linea p-nieves"><div class="quien">Doña Nieves</div><div class="dice"><p>Niño hermoso, luz de esperanza, recibe mi humilde oración: que ningún hombre sea humillado, y que todos vivamos con dignidad y corazón.</p></div></div>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Yo vengo cansado del campo, de injusticias y explotación; pero ante ti, Niño bendito, renace en mí la esperanza y la liberación.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Niño Dios, que naces pequeño, pero grande es tu amor: enséñanos a ver en el pobre la dignidad que le dio el Creador.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>No quiero riquezas ni gloria, ni poder para hacerte olvidar; solo quiero un mundo más justo, donde nadie tenga que agachar.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Yo traigo poquito, Niño, pero te lo entrego con amor; porque vale más un corazón limpio que tener riquezas y perder el corazón.</p></div></div>
+      <p class="acotacion"><span class="acot">(Espiridión se queda pensando, toma el costal y dice)</span></p>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>Y… si de casualidad aceptas comidita, también traje.</p></div></div>
+      <p class="acotacion"><span class="acot">(Los seis pastores permanecen arrodillados frente al Niño. Ángel Gabriel se acerca.)</span></p>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>Hoy no han venido solamente a adorar al Niño; han venido a descubrir que toda persona tiene dignidad, y que la verdadera libertad no está en tener poder sobre los demás, sino en aprender a caminar juntos por el camino del bien.</p></div></div>
+      <p class="acotacion"><span class="acot">(Los pastores se levantan.)</span></p>
+      <div class="linea p-tarsicio"><div class="quien">Tarsicio</div><div class="dice"><p>Entonces… ¿seguimos caminando juntos?</p></div></div>
+      <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>Juntos como hermanos.</p></div></div>
+      <div class="linea p-jovita"><div class="quien">Jovita</div><div class="dice"><p>Sin miedo.</p></div></div>
+      <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>Sin pisotear a nadie.</p></div></div>
+      <div class="linea p-espiridion"><div class="quien">Espiridión</div><div class="dice"><p>¡Y sin hacerle caso a los demonios!</p></div></div>
+      <div class="linea p-justicio"><div class="quien">Justicio</div><div class="dice"><p>Eso sí lo aprendieron.</p><p>¡Ahora sí, pastores!</p></div></div>
+      <div class="linea p-gabriel"><div class="quien">Ángel Gabriel</div><div class="dice"><p>¡Que el nacimiento de este Niño nos recuerde que la dignidad de cada persona merece ser respetada!</p></div></div>
+      <div class="linea p-grupo"><div class="quien">Todos</div><div class="dice"><p>¡Gloria a Dios en las alturas y paz en la tierra!</p></div></div>
+      <p class="acotacion"><span class="acot">(Todos se arrodillan frente al Niño Dios. Música de Navidad. Se cierra el telón.)</span></p>
+      <p class="fin">FIN</p>
+    </section>
+
+    <section id="palabras">
+      <h2>Palabras por personaje</h2>
+      <div class="grafica">
+        <figure>
+          <svg id="dona" viewBox="-212 -212 424 424" role="img" aria-label="Gráfica de dona con el porcentaje de palabras que dice cada personaje. Los mismos datos están en la tabla de al lado."></svg>
+        </figure>
+        <table class="leyenda">
+          <caption>Porcentaje de palabras por personaje</caption>
+          <tbody id="dona-tabla"></tbody>
+        </table>
+      </div>
+      <p class="grafica-nota">Se cuentan las palabras habladas de toda la obra. No incluye acotaciones ni las líneas a coro de “Todos”. Las líneas que dicen dos personajes juntos cuentan para ambos.</p>
+    </section>
+
+    <section id="por-revisar" class="revision">
+      <h2>⚠ Por revisar</h2>
+      <ul>
+        <li><strong>Posible error, Acto 9:</strong> <a href="#pend-3">“¡Ustedes otra vez!”</a>, aunque no se habían encontrado antes en escena.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var enlaces = Array.prototype.slice.call(document.querySelectorAll('.pestanas a'));
+      var lista = document.querySelector('.pestanas ul');
+      var porId = {};
+      enlaces.forEach(function (a) { porId[a.getAttribute('href').slice(1)] = a; });
+
+      function activar(id) {
+        enlaces.forEach(function (a) { a.removeAttribute('aria-current'); });
+        var a = porId[id];
+        if (!a) return;
+        a.setAttribute('aria-current', 'true');
+        if (lista.scrollWidth > lista.clientWidth) {
+          lista.scrollLeft = a.offsetLeft - (lista.clientWidth - a.offsetWidth) / 2;
+        }
+      }
+
+      var observador = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) { if (e.isIntersecting) activar(e.target.id); });
+      }, { rootMargin: '-20% 0px -75% 0px' });
+
+      Object.keys(porId).forEach(function (id) {
+        var s = document.getElementById(id);
+        if (s) observador.observe(s);
+      });
+    })();
+    (function () {
+      var R_FUERA = 180, R_DENTRO = 108, R_MEDIO = (R_FUERA + R_DENTRO) / 2, HUECO = 2;
+      var NS = 'http://www.w3.org/2000/svg';
+      var svg = document.getElementById('dona');
+      var tabla = document.getElementById('dona-tabla');
+      var conteo = {};
+
+      function sumar(id, nombre, n) {
+        if (!conteo[id]) conteo[id] = { id: id, nombre: nombre, palabras: 0 };
+        conteo[id].palabras += n;
+      }
+
+      // Se calcula desde el texto de la página: si cambian los diálogos, cambia la gráfica
+      document.querySelectorAll('.acto .linea').forEach(function (linea) {
+        var n = 0;
+        linea.querySelectorAll('.dice p').forEach(function (p) {
+          var copia = p.cloneNode(true);
+          copia.querySelectorAll('.acot').forEach(function (a) { a.remove(); });
+          n += (copia.textContent.match(/[\p{L}\p{N}]+/gu) || []).length;
+        });
+        var quien = linea.querySelector('.quien');
+        var nombrados = quien.querySelectorAll('span[class^="p-"]');
+        if (nombrados.length) {
+          nombrados.forEach(function (s) { sumar(s.className.slice(2), s.textContent, n); });
+        } else if (!linea.classList.contains('p-grupo')) {
+          var clase = Array.prototype.find.call(linea.classList, function (c) { return c.indexOf('p-') === 0; });
+          sumar(clase.slice(2), quien.textContent, n);
+        }
+      });
+
+      var datos = Object.keys(conteo).map(function (k) { return conteo[k]; })
+        .sort(function (a, b) { return b.palabras - a.palabras; });
+      var total = datos.reduce(function (s, d) { return s + d.palabras; }, 0);
+
+      function porcentaje(d) { return (100 * d.palabras / total).toFixed(1) + '%'; }
+      function punto(r, a) { return (r * Math.cos(a)).toFixed(2) + ' ' + (r * Math.sin(a)).toFixed(2); }
+      function nodo(tipo, atributos, padre) {
+        var el = document.createElementNS(NS, tipo);
+        Object.keys(atributos).forEach(function (k) { el.setAttribute(k, atributos[k]); });
+        padre.appendChild(el);
+        return el;
+      }
+
+      var capaRebanadas = nodo('g', {}, svg);
+      var capaTextos = nodo('g', {}, svg);
+      var centro1 = nodo('text', { 'class': 'dona-centro', y: -14 }, svg);
+      var centro2 = nodo('text', { 'class': 'dona-centro chico', y: 16 }, svg);
+
+      function reposo() {
+        svg.classList.remove('dona-activa');
+        datos.forEach(function (d) {
+          d.rebanada.classList.remove('activa');
+          d.texto.classList.remove('activa');
+          d.fila.classList.remove('activa');
+        });
+        centro1.textContent = 'Palabras';
+        centro1.setAttribute('class', 'dona-centro');
+        centro2.textContent = 'por personaje';
+      }
+      function resaltar(d) {
+        reposo();
+        svg.classList.add('dona-activa');
+        d.rebanada.classList.add('activa');
+        d.texto.classList.add('activa');
+        d.fila.classList.add('activa');
+        centro1.textContent = porcentaje(d);
+        centro2.textContent = d.nombre;
+      }
+
+      var angulo = -Math.PI / 2;
+      datos.forEach(function (d) {
+        var barrido = 2 * Math.PI * d.palabras / total;
+        var a0 = angulo, a1 = angulo + barrido, medio = (a0 + a1) / 2;
+        var grande = barrido > Math.PI ? 1 : 0;
+        var hF = HUECO / 2 / R_FUERA, hD = HUECO / 2 / R_DENTRO;
+        d.rebanada = nodo('path', {
+          'class': 'rebanada p-' + d.id,
+          d: 'M' + punto(R_FUERA, a0 + hF) + 'A' + R_FUERA + ' ' + R_FUERA + ' 0 ' + grande + ' 1 ' + punto(R_FUERA, a1 - hF) +
+             'L' + punto(R_DENTRO, a1 - hD) + 'A' + R_DENTRO + ' ' + R_DENTRO + ' 0 ' + grande + ' 0 ' + punto(R_DENTRO, a0 + hD) + 'Z'
+        }, capaRebanadas);
+
+        var texto = nodo('text', { 'class': 'dona-pct' }, capaTextos);
+        texto.textContent = porcentaje(d);
+        var ancho = texto.getComputedTextLength();
+        var cabe = barrido * R_MEDIO > ancho * Math.abs(Math.sin(medio)) + 18 * Math.abs(Math.cos(medio)) + 6;
+        var r = cabe ? R_MEDIO : R_FUERA + 18;
+        texto.setAttribute('x', (r * Math.cos(medio)).toFixed(2));
+        texto.setAttribute('y', (r * Math.sin(medio)).toFixed(2));
+        if (!cabe) texto.setAttribute('class', 'dona-pct fuera');
+        d.texto = texto;
+
+        var fila = document.createElement('tr');
+        fila.className = 'p-' + d.id;
+        fila.tabIndex = 0;
+        var th = document.createElement('th');
+        th.scope = 'row';
+        var muestra = document.createElement('span');
+        muestra.className = 'muestra';
+        th.appendChild(muestra);
+        th.appendChild(document.createTextNode(d.nombre));
+        var td = document.createElement('td');
+        td.textContent = porcentaje(d);
+        fila.appendChild(th);
+        fila.appendChild(td);
+        tabla.appendChild(fila);
+        d.fila = fila;
+
+        [d.rebanada, fila].forEach(function (el) {
+          el.addEventListener('pointerenter', function () { resaltar(d); });
+          el.addEventListener('pointerleave', reposo);
+          el.addEventListener('click', function () { resaltar(d); });
+        });
+        fila.addEventListener('focus', function () { resaltar(d); });
+        fila.addEventListener('blur', reposo);
+
+        angulo = a1;
+      });
+      reposo();
+    })();
+  </script>
+</body>
+</html>
