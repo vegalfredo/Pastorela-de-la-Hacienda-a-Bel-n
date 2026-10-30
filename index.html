@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18191C">
   <title>De la hacienda a Belén</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,700&family=Special+Elite&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: dark;
@@ -268,6 +266,70 @@
     @media (max-width: 40rem) {
       .sonido { margin-left: 0; }
     }
+
+    @font-face { font-family: Literata; src: url("fonts/literata.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
+    @font-face { font-family: "Special Elite"; src: url("fonts/special-elite.woff2") format("woff2"); font-display: swap; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    button, a { touch-action: manipulation; }
+    .estado-offline { margin-top: .6rem !important; font: .85rem/1.35 system-ui, "Segoe UI", sans-serif; }
+    .estado-offline:empty { display: none; }
+    .estado-offline.completo { color: #6EE7A0 !important; }
+    .estado-offline.con-falla { color: var(--aviso) !important; }
+    #estado-flotante {
+      position: fixed;
+      left: .75rem;
+      bottom: 1rem;
+      z-index: 20;
+      max-width: calc(100% - 11.5rem);
+      padding: .45rem .7rem;
+      border-radius: 6px;
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      color: var(--texto);
+      font: .78rem/1.3 system-ui, "Segoe UI", sans-serif;
+      pointer-events: none;
+    }
+    .acot { line-height: 1.2; }
+    #estado-flotante.completo { border-color: #6EE7A0; color: #6EE7A0; }
+    #estado-flotante.con-falla { border-color: var(--aviso); color: var(--aviso); }
+    #detener-todo { bottom: calc(1rem + env(safe-area-inset-bottom)); }
+    .texto-nuevo { scroll-margin-top: .5rem; }
+    .subacto { margin: .15rem 0 .6rem; padding-bottom: .35rem; border-bottom: 1px solid var(--borde); color: var(--texto); font-size: 1.1rem; font-weight: 700; }
+    .subacto span { margin-left: .3rem; color: var(--secundario); font-weight: 400; }
+
+    @media (max-height: 30rem) {
+      .pestanas ul { flex-wrap: nowrap; overflow-x: auto; max-width: none; }
+      .pestanas a { display: flex; align-items: center; min-height: 2.75rem; }
+    }
+
+    @media (max-width: 40rem) {
+      :root {
+        --resplandor: 0 0 3px rgba(255, 255, 255, .55), 0 0 8px rgba(255, 255, 255, .25);
+      }
+      html { scroll-padding-top: 3.5rem; }
+      body { font-size: 1.125rem; line-height: 1.55; }
+      main { padding-left: .9rem; padding-right: .9rem; padding-bottom: 6rem; }
+      .portada { padding: 1.5rem .9rem 1rem; }
+      section { padding-top: 1.75rem; }
+      h2 { font-size: 1.4rem; }
+      .pestanas ul { gap: .1rem; padding: .2rem .4rem; }
+      .pestanas a { display: flex; align-items: center; min-height: 2.75rem; padding: 0 .7rem; font-size: .95rem; }
+      .linea { margin: .95rem 0; }
+      .quien { font-size: 1rem; }
+      .acotacion { font-size: 1rem; }
+      .texto-nuevo { padding: .4rem .7rem; margin-left: -.3rem; margin-right: -.3rem; }
+      .sonido { padding: .55rem .6rem; }
+      .sonido-estado { margin-left: 0; width: 100%; }
+      .sonido-botones { display: grid; grid-template-columns: repeat(12, 1fr); gap: .3rem; }
+      .sonido-botones button { grid-column: span 3; order: 4; min-height: 2.75rem; padding: .2rem .15rem; font-size: .84rem; }
+      .sonido-botones button:nth-child(1) { grid-column: span 5; order: 1; }
+      .sonido-botones button:nth-child(2) { grid-column: span 4; order: 2; }
+      .sonido-botones button:nth-child(7) { grid-column: span 3; order: 3; }
+      #detener-todo { min-height: 2.75rem; right: .75rem; }
+      .grafica figure { flex: 1 1 100%; max-width: 100%; }
+      .leyenda { flex: 1 1 100%; }
+      .leyenda th, .leyenda td { padding: .5rem .4rem; }
+    }
   </style>
 </head>
 <body>
@@ -275,6 +337,7 @@
     <p>Pastorela 2026</p>
     <h1>De la hacienda a Belén</h1>
     <p>Por: Hno. León</p>
+    <p id="estado-offline" class="estado-offline" role="status"></p>
   </header>
 
   <nav class="pestanas" aria-label="Secciones de la pastorela">
@@ -282,13 +345,17 @@
         <li><a href="#personajes">Personajes</a></li>
         <li><a href="#acto-1" title="La anunciación">Acto 1</a></li>
         <li><a href="#acto-2" title="Los demonios y su plan">Acto 2</a></li>
+        <li><a href="#acto-2-1" title="Llega Asmodemónico">Acto 2.1</a></li>
+        <li><a href="#acto-2-2" title="La voz de Doña Lucifernanda">Acto 2.2</a></li>
         <li><a href="#acto-3" title="Conocemos a los pastores">Acto 3</a></li>
         <li><a href="#acto-4" title="El plan de los ángeles">Acto 4</a></li>
         <li><a href="#acto-5" title="La anunciación a los pastores">Acto 5</a></li>
         <li><a href="#acto-6" title="Los pastores en camino a Belén">Acto 6</a></li>
+        <li><a href="#acto-6-1" title="Doña Lucifernanda busca a su marido">Acto 6.1</a></li>
         <li><a href="#acto-7" title="Los demonios engañan a los pastores">Acto 7</a></li>
         <li><a href="#acto-8" title="Los ángeles se encaminan a salvar a los pastores">Acto 8</a></li>
         <li><a href="#acto-9" title="Los ángeles salvan a los pastores">Acto 9</a></li>
+        <li><a href="#acto-9-1" title="Satanás llega a su casa">Acto 9.1</a></li>
         <li><a href="#acto-10" title="Los pastores llegan a adorar al Niño a Belén">Acto 10</a></li>
         <li><a href="#palabras">Palabras</a></li>
         <li><a href="#sonidos">Sonidos</a></li>
@@ -449,7 +516,8 @@
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p>¡Maravilloso! Manos a la obra. Pónganse a chambear, <span class="acot">(con voz amenazante)</span> y cuidado con fracasar, porque ay de ustedes, que Dios los agarre confesados.</p></div></div>
       <div class="linea p-grupo"><div class="quien"><span class="p-candela">Candela</span> y <span class="p-sulfuroso">Sulfuroso</span></div><div class="dice"><p><span class="acot">(Se asustan y corren)</span></p></div></div>
       <div class="sonido" data-src="sonidos/risa.mp3" data-nombre="Risa malvada" data-origen="sugerido" data-volumen="100"></div>
-      <div class="texto-nuevo">
+      <div class="texto-nuevo" id="acto-2-1">
+        <h3 class="subacto">Acto 2.1 <span>Llega Asmodemónico</span></h3>
       <p class="acotacion"><span class="acot">(Satanás se queda solo y se sienta en su silla, muy satisfecho. Se oyen gritos desde fuera. Entra a toda carrera Asmodemónico, jorobado y con rastas, abrazando una montaña de papeles. Se pisa la cola, vuela de panza por todo el escenario y se detiene justo a los pies de Satanás. Los papeles le van cayendo encima, uno por uno.)</span></p>
       <div class="sonido" data-src="sonidos/golpe.mp3" data-nombre="Golpe" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde el suelo, levanta un dedo)</span> ¡Patrón, patrón! ¡Vengo a avisarle que el de allá arriba ya viene a redimir a los humanos!</p></div></div>
@@ -468,7 +536,8 @@
       <div class="sonido" data-src="sonidos/golpe.mp3" data-nombre="Golpe" data-origen="sugerido" data-volumen="100"></div>
       <div class="linea p-asmodemonico"><div class="quien">Asmodemónico</div><div class="dice"><p><span class="acot">(Desde fuera)</span> ¡Presente, patrón!</p></div></div>
       </div>
-      <div class="texto-nuevo">
+      <div class="texto-nuevo" id="acto-2-2">
+        <h3 class="subacto">Acto 2.2 <span>La voz de Doña Lucifernanda</span></h3>
       <p class="acotacion"><span class="acot">(Satanás se pone de pie y, ya solo, se prepara para una carcajada diabólica. Levanta los brazos, echa la cabeza para atrás y abre la boca, pero antes de que le salga la risa se oye una voz de mujer desde fuera.)</span></p>
       <div class="linea p-lucifernanda"><div class="quien">Doña Lucifernanda</div><div class="dice"><p><span class="acot">(Desde fuera, con una voz que hace temblar el escenario)</span> ¡Satanááás! ¡¿Ya sacaste la basura?!</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Se le cae todo el porte, se encoge y contesta con vocecita de niño)</span> Ya voy, mi Luci… <span class="acot">(Sale de puntitas, recogiendo a toda prisa los papeles del suelo)</span></p></div></div>
@@ -790,7 +859,8 @@
       <div class="linea p-joaquina"><div class="quien">Joaquina</div><div class="dice"><p>¡No insultes a los burros! Ellos sí trabajan.</p></div></div>
       <div class="linea p-cleto"><div class="quien">Don Cleto</div><div class="dice"><p>¡Ya dejen de estar peleando! Y sigamos, porque, si no, menos vamos a llegar.</p></div></div>
       <p class="acotacion"><span class="acot">(Don Cleto los arrea con el bastón y los pastorcitos salen)</span></p>
-      <div class="texto-nuevo">
+      <div class="texto-nuevo" id="acto-6-1">
+        <h3 class="subacto">Acto 6.1 <span>Doña Lucifernanda busca a su marido</span></h3>
       <p class="acotacion"><span class="acot">(Los pastores ya salieron. Entran Candela y Sulfuroso buscando dónde esconderse. Sulfuroso camina muy bravo, con la mano en el cinto.)</span></p>
       <div class="linea p-sulfuroso"><div class="quien">Sulfuroso</div><div class="dice"><p>Aquí mero nos plantamos, Candela. Que venga quien venga, a mí nadie me hace temblar.</p></div></div>
       <p class="acotacion"><span class="acot">(Entra Doña Lucifernanda con tubos en el pelo, mandil y pantuflas, un tóper en una mano y la chancla en la otra. Sulfuroso saca el arma sin ver quién es. Ella se la quita como a un niño, la huele y se la guarda en el mandil.)</span></p>
@@ -1303,7 +1373,8 @@
       <p class="acotacion"><span class="acot">(Todos lo persiguen mientras él corre)</span></p>
       <p class="acotacion"><span class="acot">(Todos salen corriendo hacia Belén)</span></p>
       <p class="acotacion"><span class="acot">(Cierra telón)</span></p>
-      <div class="texto-nuevo">
+      <div class="texto-nuevo" id="acto-9-1">
+        <h3 class="subacto">Acto 9.1 <span>Satanás llega a su casa</span></h3>
       <p class="acotacion"><span class="acot">(Frente al telón cerrado. Entra Satanás cojeando, con el tridente doblado y la capa chamuscada. Camina de puntitas para no hacer ruido. De pronto, una luz cae sobre Doña Lucifernanda, sentada en una silla, de brazos cruzados, con la chancla en la mano.)</span></p>
       <div class="linea p-lucifernanda"><div class="quien">Doña Lucifernanda</div><div class="dice"><p>¿Y esas horas, Satanás?</p></div></div>
       <div class="linea p-satanas"><div class="quien">Satanás</div><div class="dice"><p><span class="acot">(Se queda congelado en un pie. Se endereza e intenta poner voz de jefe)</span> Mujer, vengo de una batalla por las almas de toda la humanidad.</p></div></div>
@@ -1412,6 +1483,7 @@
     </section>
   </main>
 
+  <div id="estado-flotante" hidden></div>
   <button type="button" id="detener-todo" hidden>■ Detener todo</button>
 
   <script>
@@ -1431,8 +1503,19 @@
         }
       }
 
+      // El espacio al saltar a una sección sigue la altura real del encabezado
+      var encabezado = document.querySelector('.pestanas');
+      function ajustarDesplazamiento() {
+        document.documentElement.style.scrollPaddingTop = encabezado.offsetHeight + 'px';
+      }
+      ajustarDesplazamiento();
+      window.addEventListener('resize', ajustarDesplazamiento);
+
+      var visibles = {};
       var observador = new IntersectionObserver(function (entradas) {
-        entradas.forEach(function (e) { if (e.isIntersecting) activar(e.target.id); });
+        entradas.forEach(function (e) { visibles[e.target.id] = e.isIntersecting; });
+        var ids = Object.keys(porId).filter(function (id) { return visibles[id]; });
+        if (ids.length) activar(ids[ids.length - 1]);
       }, { rootMargin: '-20% 0px -75% 0px' });
 
       Object.keys(porId).forEach(function (id) {
@@ -1567,6 +1650,11 @@
       var SALTO = 5, PASO_VOLUMEN = 0.1;
       var detenerTodo = document.getElementById('detener-todo');
       var reproductores = [];
+      // iPhone ignora el volumen del audio de una página: ahí se controla con Web Audio
+      var prueba = new Audio();
+      prueba.volume = 0.5;
+      var SIN_VOLUMEN = prueba.volume !== 0.5;
+      var contexto = null;
 
       function reloj(s) {
         if (!isFinite(s)) return '–:––';
@@ -1583,7 +1671,28 @@
         audio.preload = 'none';
         audio.src = caja.dataset.src;
         audio.loop = 'repetir' in caja.dataset;
-        audio.volume = Number(caja.dataset.volumen) / 100;
+        var nivel = Number(caja.dataset.volumen) / 100;
+        var ganancia = null;
+        function aplicarNivel() {
+          if (!SIN_VOLUMEN) audio.volume = nivel;
+          else if (ganancia) ganancia.gain.value = nivel;
+        }
+        function conectarVolumen() {
+          if (!SIN_VOLUMEN) return;
+          try {
+            if (!contexto) contexto = new (window.AudioContext || window.webkitAudioContext)();
+            if (!ganancia) {
+              ganancia = contexto.createGain();
+              contexto.createMediaElementSource(audio).connect(ganancia);
+              ganancia.connect(contexto.destination);
+            }
+            if (contexto.state !== 'running') contexto.resume();
+            aplicarNivel();
+          } catch (e) {
+            ganancia = null;
+          }
+        }
+        aplicarNivel();
 
         var cabeza = document.createElement('div');
         cabeza.className = 'sonido-cabeza';
@@ -1617,25 +1726,29 @@
 
         function pintar() {
           estado.textContent = reloj(audio.currentTime) + ' / ' + reloj(audio.duration) +
-            ' · Vol ' + (audio.muted ? 'silenciado' : Math.round(audio.volume * 100) + '%');
+            ' · Vol ' + (audio.muted ? 'silenciado' : Math.round(nivel * 100) + '%');
         }
         function detener() {
           audio.pause();
-          audio.currentTime = 0;
+          try { audio.currentTime = 0; } catch (e) {}
           pintar();
         }
         function saltar(segundos) {
           var destino = Math.max(0, audio.currentTime + segundos);
-          audio.currentTime = isFinite(audio.duration) ? Math.min(destino, audio.duration) : destino;
+          try {
+            audio.currentTime = isFinite(audio.duration) ? Math.min(destino, audio.duration) : destino;
+          } catch (e) {}
           pintar();
         }
         function cambiarVolumen(delta) {
-          audio.volume = Math.min(1, Math.max(0, Math.round((audio.volume + delta) * 10) / 10));
+          nivel = Math.min(1, Math.max(0, Math.round((nivel + delta) * 10) / 10));
+          aplicarNivel();
           pintar();
         }
 
         var reproducir = boton('▶ Reproducir', 'Reproducir', function () {
           if (audio.paused) {
+            conectarVolumen();
             audio.play().catch(function () { estado.textContent = 'No se pudo reproducir'; });
           } else {
             audio.pause();
@@ -1677,6 +1790,94 @@
       detenerTodo.addEventListener('click', function () {
         reproductores.forEach(function (r) { if (!r.audio.paused) r.detener(); });
       });
+    })();
+    (function () {
+      var CACHE_RECURSOS = 'pastorela-recursos-0fbd40246158';
+      var ESPERA_REINTENTO = 30000, SIMULTANEOS = 3, VISIBLE_AL_TERMINAR = 6000;
+      var fijo = document.getElementById('estado-offline');
+      var flotante = document.getElementById('estado-flotante');
+
+      // Mantiene encendida la pantalla del teléfono durante los ensayos
+      if ('wakeLock' in navigator && window.matchMedia('(pointer: coarse)').matches) {
+        var candado = null;
+        var pedirCandado = function () {
+          if (candado || document.visibilityState !== 'visible') return;
+          navigator.wakeLock.request('screen').then(function (c) {
+            candado = c;
+            c.addEventListener('release', function () { candado = null; });
+          }).catch(function () {});
+        };
+        pedirCandado();
+        document.addEventListener('visibilitychange', pedirCandado);
+        document.addEventListener('pointerdown', pedirCandado);
+      }
+
+      if (location.protocol === 'file:' || !('serviceWorker' in navigator) || !('caches' in window)) return;
+
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+      if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(function () {});
+
+      var rutas = [];
+      document.querySelectorAll('.sonido').forEach(function (c) {
+        if (rutas.indexOf(c.dataset.src) === -1) rutas.push(c.dataset.src);
+      });
+
+      var temporizador = null, guardando = false;
+      function mostrar(texto, clase, pasajero, corto) {
+        fijo.textContent = texto;
+        fijo.className = 'estado-offline ' + clase;
+        flotante.textContent = corto || texto;
+        flotante.className = clase;
+        flotante.hidden = false;
+        clearTimeout(temporizador);
+        if (pasajero) temporizador = setTimeout(function () { flotante.hidden = true; }, VISIBLE_AL_TERMINAR);
+      }
+
+      function guardarAudios() {
+        if (guardando) return;
+        guardando = true;
+        caches.open(CACHE_RECURSOS).then(function (cache) {
+          var pendientes = rutas.slice(), listos = 0, fallidos = 0, sinEspacio = false;
+          mostrar('Guardando audios: 0 de ' + rutas.length, 'en-proceso');
+          function siguiente() {
+            var ruta = pendientes.shift();
+            if (!ruta) return Promise.resolve();
+            return cache.match(ruta, { ignoreVary: true }).then(function (ya) {
+              if (ya) return;
+              return fetch(ruta).then(function (r) {
+                if (r.status !== 200) throw new Error(String(r.status));
+                return cache.put(ruta, r);
+              });
+            }).then(function () {
+              listos++;
+              mostrar('Guardando audios: ' + listos + ' de ' + rutas.length, 'en-proceso');
+            }).catch(function (e) {
+              fallidos++;
+              if (e && e.name === 'QuotaExceededError') sinEspacio = true;
+            }).then(siguiente);
+          }
+          var trabajadores = [];
+          for (var i = 0; i < SIMULTANEOS; i++) trabajadores.push(siguiente());
+          return Promise.all(trabajadores).then(function () {
+            guardando = false;
+            if (fallidos === 0) {
+              mostrar('✓ ' + rutas.length + ' de ' + rutas.length + ' audios guardados: ya suenan sin internet', 'completo', true, '✓ Audios guardados');
+            } else if (sinEspacio) {
+              mostrar('⚠ No hay espacio en el teléfono: faltan ' + fallidos + ' audios', 'con-falla', true, '⚠ Faltan ' + fallidos + ' audios');
+            } else {
+              mostrar('⚠ Faltan ' + fallidos + ' audios por guardar. Se reintenta al tener internet', 'con-falla', true, '⚠ Faltan ' + fallidos + ' audios');
+              setTimeout(guardarAudios, ESPERA_REINTENTO);
+            }
+          });
+        }).catch(function () {
+          guardando = false;
+          mostrar('⚠ Este navegador no pudo guardar los audios', 'con-falla');
+        });
+      }
+
+      window.addEventListener('online', guardarAudios);
+      if (document.readyState === 'complete') guardarAudios();
+      else window.addEventListener('load', guardarAudios);
     })();
   </script>
 </body>
